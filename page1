@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Personnages </title>
+        <link rel="stylesheet" href="style2.css">
+        <title>  </title>
     </head>
     <body>
-        <h1>
-             
-        </h1>
+        <h1 class="PERSONNAGES"> PERSONNAGES</h1>
+       <!-- <img src=""> -->
+        <div class="CarreRond"></div>
     </body>
+    <footer> 
+        <p>Author: Hege Refsnes</p>
+    </footer>
 </html>
