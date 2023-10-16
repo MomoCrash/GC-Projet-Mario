@@ -34,6 +34,10 @@ body {
     transform: scale(1.2);
 }
 
+title-box {
+    text-align: middle;
+}
+
 .page-title {
     position: fixed;
     display: flex;

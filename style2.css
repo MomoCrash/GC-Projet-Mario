@@ -1,0 +1,14 @@
+.PERSONNAGES{
+    color: rgb(51, 255, 0);
+    text-align: center; 
+    
+}
+
+.CarreRond{
+    border-radius: 10px;
+    border: 1px solid #00ff00;
+    width: 100px;
+    height: 100px;
+}
+
+
