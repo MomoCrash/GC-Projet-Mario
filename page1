@@ -6,10 +6,28 @@
     </head>
     <body>
         <h1 class="PERSONNAGES"> PERSONNAGES</h1>
-       <!-- <img src=""> -->
-        <div class="CarreRond"></div>
+        
+        <div class="Personnage">
+           <img class="CarreRond"src="ressources/Personnage1/Mario1.png">            </div>
+            <div class="Personnage">
+                <img class="CarreRond"src="ressources/Personnage1/Luigi1.png">
+            </div>
+            <div class="Personnage">
+                <img class="CarreRond"src="ressources/Personnage1/Peach1.png">
+            </div>
+            <div class="Personnage">
+                <img class="CarreRond"src="ressources/Personnage1/Yoshi1.png">
+            </div>
+            <div class="Personnage">
+                <img class="CarreRond"src="ressources/Personnage1/Toad1.png">
+            </div>
+        <div class="FondHero">
+            
+        </div>
+            
+        
     </body>
     <footer> 
-        <p>Author: Hege Refsnes</p>
+        <p>Auteur: Gilotin Ethan et PASCAL Noa | Property of ©Nintendo. 2023</p>
     </footer>
 </html>
