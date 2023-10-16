@@ -1,7 +1,31 @@
 body {
-
+    color: aqua;
+    margin: auto;
+}
+h1 {
+    color: aliceblue;
+}
+footer {
+    text-align: center;
+    padding: 5px;
+    background-color: #abbaba;
+    color: #000;
+    margin: 10%;
+    margin-bottom: 10%;
 }
 
-.pipe {
-    text-align: right;
+.nav-bar {
+    width: 100;
+    height: 100;
+    background-color: aqua;
+    margin: auto;
+}
+.nav-bar {
+    color: #000;
+    text-align: center;
+    align-items: ;
+}
+
+title-box {
+    text-align: middle;
 }
