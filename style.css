@@ -1,31 +1,37 @@
 body {
     color: aqua;
-    margin: auto;
 }
 h1 {
     color: aliceblue;
 }
+
+nav {
+    position: fixed;
+    width: 150;
+    top: 5%;
+    right: 10px;
+    width: 95%;
+    background-image: url(ressources/Background/Tuyo.png);
+    transform: rotate(90dg);
+}
+
+nav ul {
+    color: #000;
+    display: inline-block;
+}
+
+nav li {
+    color: #000;
+    display: inline-block;
+}
+
 footer {
-    text-align: center;
-    padding: 5px;
-    background-color: #abbaba;
-    color: #000;
-    margin: 10%;
-    margin-bottom: 10%;
-}
-
-.nav-bar {
-    width: 100;
-    height: 100;
-    background-color: aqua;
-    margin: auto;
-}
-.nav-bar {
-    color: #000;
-    text-align: center;
-    align-items: ;
-}
-
-title-box {
-    text-align: middle;
+    position: fixed;  
+    left: 10px;  
+    bottom: 5px;  
+    right: 10px;   
+    width: 95%;  
+    background-color: gray;  
+    color: white;  
+    text-align: center;  
 }
