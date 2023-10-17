@@ -10,11 +10,16 @@ body {
     margin: 0;
     min-height: 100%;
     padding-bottom: 50%;
+    
+    background-color: rgba(128, 128, 128, 0.096);
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255, 255, 255, 0.192) 15px, rgba(255,255,255,.5) 31px);
 }
 
 html {
     height: 100%;
 }
+
+/*---------- Navigation bar ----------*/
 
 .nav-bar {
     text-align: center;
@@ -24,18 +29,19 @@ html {
 #nav-background::before {
     content: "";
     position: absolute;
-    top: -2%;
-    left: 14%;
-    width: 1325px;
-    height: 200px;
-    background-image: url("ressources/Background/tuyau_mid.png");
-    background-repeat: repeat;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    width: 100px;
+    height: 1400px;
+    background-image: url("ressources/Background/pipe_mid.png");
+    background-size: 100%, 100%;
     z-index: -1;
 }
 
 .nav-bar .nav-text {
     position: sticky;
-    color: #0045CE;
+    color: white;
     display: inline-block;
     padding: 10px;
     text-decoration: none;
@@ -53,34 +59,63 @@ html {
     user-select: none;
 }
 
+/*---------- Page title ----------*/
+
 .page-title {
     position: absolute;
-    display: flex;
-    height: 20%;
-    width: 40%;
-    top: 10%;
-    right: 20%;
+    text-align: center;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%);
 }
+
+/*---------- Left and Right Panels ----------*/
 
 .left-panel {
     position: absolute;
     left: 0%;
     top: 0%;
-    height: 1800px;
-    width: 200px;
-    background: linear-gradient(-45deg, #86602B 25%, #6B4C22 25%, #6B4C22 50%, #86602B 50%, #86602B 75%, #6B4C22 75%, #6B4C22);
-    background-size:6px 6px;
+    height: 100%;
+    width: 10%;
+    background-color: gray;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255, 255, 255, 0.192) 15px, rgba(255,255,255,.5) 31px);
 }
 
 .right-panel {
     position: absolute;
     right: 0%;
     top: 0%;
-    height: 1800px;
-    width: 200px;
-    background: linear-gradient(-45deg, #86602B 25%, #6B4C22 25%, #6B4C22 50%, #86602B 50%, #86602B 75%, #6B4C22 75%, #6B4C22);
-    background-size:6px 6px;
+    height: 100%;
+    width: 10%;
+    background-color: gray;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255, 255, 255, 0.192) 15px, rgba(255,255,255,.5) 31px);
 }
+
+.right-panel .panel-text {
+    position: fixed;
+    right: 1%;
+    top: 1%;
+    max-width: 10px;
+}
+
+/* ----------- Page Content ------------- */
+.news-span {
+    position: relative;
+    width: auto;
+    max-width: 500px;
+    max-height: 500px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    display: inline-block; 
+}
+
+.news  {
+    border: 2px solid #000000; 
+}
+
+/*---------- Footer ----------*/
 
 footer {
     position: absolute;
