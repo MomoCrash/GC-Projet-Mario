@@ -5,10 +5,13 @@
 
 body {
     font-family: SuperMario;
+    background-image: url("ressources/Background/FondSite.webp");
+    background-repeat: no-repeat;
+    background-size: 100%, 100%;
 }
 
 .personnages-titre{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-align: center;    
 }
 
@@ -22,8 +25,13 @@ body {
 .AllignPerso{
     display: flex;
     justify-content:space-evenly;
-    color: blue;
-    background-color:rgba(34, 131, 196, 0.568);
+    background-color: silver;
+    background-image: linear-gradient(335deg, rgb(47, 117, 207) 23px, transparent 23px),
+    linear-gradient(155deg, rgb(47, 117, 207) 23px, transparent 23px),
+    linear-gradient(335deg, rgb(47, 117, 207) 23px, transparent 23px),
+    linear-gradient(155deg, rgb(47, 117, 207) 23px, transparent 23px);
+    background-size: 58px 58px;
+    background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
 }
 .Personnages { 
     display: inline-block; 
@@ -33,22 +41,45 @@ body {
     max-width:150px;
     max-height: 150px; 
     border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
     border: 2px solid #000000; 
     padding: 5px;
     background-color: rgba(128, 128, 128, 0.096);
     background-image: repeating-linear-gradient(45deg, transparent, transparent 15px, rgb(255, 255, 255) 15px, rgb(255, 255, 255) 31px); 
 }
-
-.CarreRond:hover{
-    transition: all .1s ease-in;
-    transform: scale(1.2);
-    background-image: repeating-linear-gradient(45deg, white, white 15px, rgb(255, 0, 0) 15px, rgb(255, 0, 0) 31px); 
+.CarreRond img{
+    width: 100px;
+}
+.CarreRond .verso {
+    display: none;
 }
 
+.CarreRond:hover{
+    transition: all .2s ease-in;
+    transform: translateY(20px) scale(1.2);
+    background-image: repeating-linear-gradient(45deg, rgb(255, 255, 255), rgb(255, 255, 255) 15px, rgb(255, 0, 0) 15px, rgb(255, 0, 0) 31px); 
+
+}
+
+.CarreRond:hover img{
+    transition: all .2s ease-in;
+    transform: translateY(-60px) scale(1.1);
+}
+
+.CarreRond:hover .recto{
+    display: none;
+}
+
+.CarreRond:hover .verso{
+    display: block;
+}
+
+
+
 .FondHero{
-    border: 2px;
-    width: 100px;
-    background-color: green;
+   width: auto;
 }
 
 footer {
