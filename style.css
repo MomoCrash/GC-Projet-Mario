@@ -33,7 +33,7 @@ html {
     top: 5%;
     transform: translate(-50%, -50%) rotate(90deg);
     width: 100px;
-    height: 1400px;
+    height: 110px;
     background-image: url("ressources/Background/pipe_mid.png");
     background-size: 100%, 100%;
     z-index: -1;
@@ -101,18 +101,38 @@ html {
 /* ----------- Page Content ------------- */
 .news-span {
     position: relative;
-    width: auto;
-    max-width: 500px;
-    max-height: 500px;
-    justify-content: center;
-    align-items: center;
+    top: 100px;
+}
+
+.news-span #nouveautes {
+    color: black;
     text-align: center;
-    height: auto;
-    display: inline-block; 
+    margin-right: 0;
+    padding: 0;
 }
 
 .news  {
+    position: relative;
+    display: flex;
+    max-width: 1000px;
+    max-height: 500px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
     border: 2px solid #000000; 
+    margin-right: 0;
+    padding: 0;
+}
+
+.item {
+    max-width: 500px;
+    max-height: 500px;
+    width: 500px;
+    height: 500px;
+    border: 2px solid #000000; 
+    object-fit: contain;
+    margin: 0;
 }
 
 /*---------- Footer ----------*/
