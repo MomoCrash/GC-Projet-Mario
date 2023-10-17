@@ -24,8 +24,10 @@ html {
 #nav-background::before {
     content: "";
     position: absolute;
-    width: 500px;
-    height: 256px;
+    top: -2%;
+    left: 14%;
+    width: 1325px;
+    height: 200px;
     background-image: url("ressources/Background/tuyau_mid.png");
     background-repeat: repeat;
     z-index: -1;
@@ -66,7 +68,8 @@ html {
     top: 0%;
     height: 1800px;
     width: 200px;
-    background-color: blue
+    background: linear-gradient(-45deg, #86602B 25%, #6B4C22 25%, #6B4C22 50%, #86602B 50%, #86602B 75%, #6B4C22 75%, #6B4C22);
+    background-size:6px 6px;
 }
 
 .right-panel {
@@ -75,7 +78,8 @@ html {
     top: 0%;
     height: 1800px;
     width: 200px;
-    background-color: blue
+    background: linear-gradient(-45deg, #86602B 25%, #6B4C22 25%, #6B4C22 50%, #86602B 50%, #86602B 75%, #6B4C22 75%, #6B4C22);
+    background-size:6px 6px;
 }
 
 footer {
