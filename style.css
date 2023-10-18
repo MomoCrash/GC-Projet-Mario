@@ -92,14 +92,6 @@ html {
     text-align: center;
     justify-content: center;
 
-    margin-top: 50px;
-    margin-left: 50px;
-    border-radius: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 15px 25px 0px rgba(0, 0, 0, 0.3);
-    border-color: rgba(0, 0, 0, 0.5);
-    border-bottom-width: 5px;
-
     position: relative;
     background-color: #fff;
     background-position: 50%;
