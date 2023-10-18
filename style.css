@@ -3,9 +3,16 @@
     src: url('ressources/font/SuperMario256.ttf') ; /*URL to font*/
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 :root {
-    --gradient-lime: linear-gradient(223deg,#00abbc,#3fe049);
-    --gradient-red: linear-gradient(223deg,#bc0000,#ae00ff);
+    --gradient-lime: linear-gradient(223deg, #00abbc,#3fe049);
+    --gradient-red: linear-gradient(223deg, #bc0000,#ae00ff);
+    --gradient-darckred: linear-gradient(223deg, #490000,#3a0055);
 }
 
 body {
@@ -14,10 +21,14 @@ body {
 
     margin: 0;
     min-height: 100%;
-    padding-bottom: 50%;
+    padding-bottom: 280px;
     
     background-color: rgba(128, 128, 128, 0.096);
     background-image: repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255, 255, 255, 0.192) 15px, rgba(255,255,255,.5) 31px);
+
+    background-image: url("ressources/Background/FondSite.webp");
+    background-repeat: repeat-y;
+    background-size: 100%, 100%;
 }
 
 html {
@@ -27,18 +38,27 @@ html {
 /*---------- Navigation bar ----------*/
 
 .nav-bar {
+    position: fixed;
     display: table-cell;
     text-align: center;
     vertical-align: middle;
-    width: 1%;
+    width: 100%;
     height: 50px;
+    left: 50%;
+    top: 24px;
+    transform: translate(-50%, -50%);
     background-color: #164141;
+    z-index: 1;
 }
 
 .nav-bar .nav-text {
+    position: relative;
     color: white;
     display: inline-block;
     text-decoration: none;
+    margin-left: 50px;
+    padding-top: 15px;
+    z-index: 1;
 }
 
 .nav-bar .nav-text:hover {
@@ -53,23 +73,42 @@ html {
     user-select: none;
 }
 
-/*---------- Page title ----------*/
+/*---------- titles ----------*/
+
+.titre {
+    background-image: url(ressources/Background/pattern-logos-characters.png), var(--gradient-darckred); 
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 15px 25px 0px rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    border-bottom-width: 5px;
+}
 
 .page-title {
     position: relative;
     text-align: center;
     left: 50%;
-    top: 5%;
+    top: 20px;
     transform: translate(-50%, -50%);
 }
 
+#jeux {
+    position: relative;
+    text-align: center;
+    top: 100px;
+    color: #00abbc;
+}
+
 /* ----------- Page Content ------------- */
+
 .visual-span {
     position: relative;
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
 }
+
+/*SINGLE CONTAINER*/
 
 .single-container  {
     position: ab;
@@ -95,9 +134,9 @@ html {
     margin-top: 50px;
     margin-left: 50px;
     border-radius: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 15px 25px 0px rgba(0, 0, 0, 0.3);
-    border-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 15px 25px 0px rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
     border-bottom-width: 5px;
 
     position: relative;
@@ -106,8 +145,7 @@ html {
     background-image: url(ressources/Background/pattern-logos-characters.png), var(--gradient-red); 
 }
 
-
-
+/*DUAL CONTAINER*/
 
 .dual-container  {
     position: ab;
@@ -133,9 +171,9 @@ html {
     margin-top: 50px;
     margin-left: 50px;
     border-radius: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 15px 25px 0px rgba(0, 0, 0, 0.3);
-    border-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 15px 25px 0px rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
     border-bottom-width: 5px;
 
     position: relative;
@@ -144,6 +182,83 @@ html {
     background-image: url(ressources/Background/pattern-logos-characters.png), var(--gradient-lime); 
 }
 
+/************* Game Selector *****************/
+
+.game-selector {
+    position: relative;
+    top: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    gap: 10px;
+  
+    > div {
+      flex: 0 0 120px;
+      border-radius: 0.5rem;
+      transition: 0.5s ease-in-out;
+      cursor: pointer;
+      box-shadow: 1px 5px 15px #1e0e3e;
+      position: relative;
+      overflow: hidden;
+  
+      &:nth-of-type(1) {
+        background: url("ressources/games/mario-bros-nes.jpg")
+            no-repeat 50% / cover;
+      }
+      &:nth-of-type(2) {
+        background: url("ressources/games/mario-bros-wii.png")
+            no-repeat 50% / cover;
+      }
+      &:nth-of-type(3) {
+        background: url("ressources/games/mario-bros-wiiu.png")
+            no-repeat 50% / cover;
+      }
+      &:nth-of-type(4) {
+        background: url("ressources/games/mario-bros-wonder.webp")
+            no-repeat 50% / cover;
+      }
+  
+      .game {
+        font-size: 1.5rem;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        opacity: 0;
+        flex-direction: column;
+        height: 100%;
+        justify-content: flex-end;
+        background: linear-gradient(
+          0deg,
+          rgba(133, 61, 61, 0.445) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        transform: translatey(100%);
+        transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+        visibility: hidden;
+  
+        span {
+          display: block;
+          margin-top: 5px;
+          font-size: 1.2rem;
+        }
+      }
+  
+      &:hover {
+        flex: 0 0 250px;
+        box-shadow: 2px 3px 15px #b80707;
+        transform: translatey(-30px);
+      }
+  
+      &:hover .game {
+        opacity: 1;
+        transform: translatey(0%);
+        visibility: visible;
+      }
+    }
+  }  
+
 /*---------- Footer ----------*/
 
 footer {
@@ -151,8 +266,9 @@ footer {
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 1rem;
-    background-color: #fff;
-    color: black;
+    padding: 20px;
+    background-color: rgb(80, 0, 0);
+    background-image: url(ressources/Background/pattern-logos-characters.png), var(--gradient-darckred); 
+    color: #fff;
     text-align: center;
 }
