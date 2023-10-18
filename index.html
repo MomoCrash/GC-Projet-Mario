@@ -3,57 +3,105 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta charset="UTF-8">
+        <link rel="icon" type="image/x-icon" href="ressources/icons/mario-icon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Super Mario </title>
+        <title> Mario Bros | Acceuil </title>
     </head>
     <body>
 
         <div class="nav-bar">
-            <a class="nav-text" href="#nouveautes"> nouveautes </a>
-            <a class="nav-text" href="#jeu"> Jeu </a>
+            <a class="nav-icon" href="#top-title"> <img src="ressources/icons/mario-icon.png" alt="Nav Menu Icon"> </a>
+            <a class="nav-text" href="#nouveautes"> Nouveautes </a>
+            <a class="nav-text" href="#jeux"> Jeux </a>
             <a class="nav-text" href="personnage.html"> Personnages </a>
-            <a class="panel-text" href="login.html"> Login / Register </a>
+            <a class="nav-text" href="https://www.nintendo.fr/Rechercher/Rechercher-299117.html?q=Mario%20Bros&f=147394-5-2-3-1-32-43" target="_blank"> Acheter </a>
         </div>
 
-        <div>
-            <h1 class="page-title">
-                 Le monde de Mario
-            </h1>
-        </div>
+        <h1 id="top-title" class="title">
+            Le monde des Mario Bros
+        </h1>
 
-        <span class="dual-visual-span">
-            <div class="dual-container">
-                <p class="item">
-                    Dernieres nouveautes <br> <br>  Super Mario est bientot de retour sur Nintendo Switch, avec Super Mario Bros. Wonder. Dans cette aventure au Royaume des Fleurs, les nouveautes sont nombreuses : nouveaux personnages, nouveaux pouvoirs, nouveaux ennemis…  
-                </p>
-                <p class="item">
-                     Dernieres nouveautes
-                    <br> <br>  Super Mario est bientot de retour sur Nintendo Switch, avec Super Mario Bros. Wonder. Dans cette aventure au Royaume des Fleurs, les nouveautes sont nombreuses : nouveaux personnages, nouveaux pouvoirs, nouveaux ennemis… 
+        <span class="visual-span">
+            <div class="single-container">
+                <p class="single-item">
+                    Mario bros <br> <br> <br>
+                    La Saga des jeu mario bros commence en 1989 avec le tout premier mario bros sortis sur nes,
+                    ce platformer dans le quel vous incanez un plombier: Mario, doit sauvez la princesse du Royaume Champignon !
                 </p>
             </div>
         </span>
 
-        <span class="dual-visual-span">
+        <br id="nouveautes">
+
+        <span class="visual-span">
             <div class="dual-container">
-                <p class="item" id="nouveautes">
+                <p class="dual-item">
                      Dernieres nouveautes 
                      <br> <br>  Super Mario est bientot de retour sur Nintendo Switch, avec Super Mario Bros. Wonder. Dans cette aventure au Royaume des Fleurs, les nouveautes sont nombreuses : nouveaux personnages, nouveaux pouvoirs, nouveaux ennemis… 
                 </p>
-                <img class="item" src="ressources/news/game.jpg" alt="salut">
+                <img class="dual-item" src="ressources/news/new-game.webp" alt="salut">
             </div>
         </span>
 
-        <span class="dual-visual-span">
+        <span class="visual-span">
             <div class="dual-container">
-                <img class="item" src="ressources/Personnage2/Mario2.png" alt="salut">
-                <p class="item"> 
+                <img class="dual-item" src="ressources/news/new-game.webp" alt="salut">
+                <p class="dual-item"> 
                     Deuxieme news 
                     <br> <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat enim et fermentum rhoncus. Sed vitae nisl tempus, rhoncus est tempor, auctor ligula. Aenean consequat ex eget dui lacinia semper. Donec at felis ornare, lacinia mauris quis, tincidunt enim. Nulla facilisi. Integer lacinia mollis nulla. Fusce dictum orci ac urna dignissim, at consectetur metus venenatis. Pellentesque venenatis dictum lectus eget laoreet. Nam eleifend urna nec cursus congue. 
                 </p>
             </div>
         </span>
 
+        <span class="visual-span">
+            <div class="dual-container">
+                <p class="dual-item"> 
+                    Troiseme news
+                    <br> <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat enim et fermentum rhoncus. Sed vitae nisl tempus, rhoncus est tempor, auctor ligula. Aenean consequat ex eget dui lacinia semper. Donec at felis ornare, lacinia mauris quis, tincidunt enim. Nulla facilisi. Integer lacinia mollis nulla. Fusce dictum orci ac urna dignissim, at consectetur metus venenatis. Pellentesque venenatis dictum lectus eget laoreet. Nam eleifend urna nec cursus congue. 
+                </p>
+                <img class="dual-item" src="ressources/news/new-game.webp" alt="salut">
+            </div>
+        </span>
+
     </body>
+
+    <h1 id="jeux" class="title"> Les jeux </h1>
+
+    <div class="game-selector">
+        <div>
+            <a href="nes-game.html">
+                <div class="game">
+                    <h2>NES</h2>
+                    <span>1983</span>
+                </div>
+            </a>
+        </div>
+        <div>
+            <a href="wii-game.html">
+                <div class="game">
+                    <h2>Wii</h2>
+                    <span>2009</span>
+                </div>
+            </a>
+        </div>
+        <div>
+            <a href="wii-u.html">
+            <div class="game">
+                <h2>Wii U</h2>
+                <span>2012</span>
+            </div>
+            </a>
+        </div>
+        <div>
+            <a href="wii-switch.html">
+                <div class="game">
+                    <h2>Switch</h2>
+                    <span>2023</span>
+                </div>
+            </a>
+        </div>
+      </div>
+
     <footer> 
         <p>Auteur: Gilotin Ethan et PASCAL Noa | Property of ©Nintendo. 2023</p>
     </footer>
