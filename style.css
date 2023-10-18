@@ -5,6 +5,7 @@
 
 :root {
     --gradient-lime: linear-gradient(223deg,#00abbc,#3fe049);
+    --gradient-red: linear-gradient(223deg,#bc0000,#ae00ff);
 }
 
 body {
@@ -63,13 +64,50 @@ html {
 }
 
 /* ----------- Page Content ------------- */
-.dual-visual-span {
+.visual-span {
     position: relative;
     display: flex;
-    top: 100px;
     justify-content: center;
     margin-bottom: 50px;
 }
+
+.single-container  {
+    position: ab;
+    display: flex;
+    max-width: 1000px;
+    max-height: 350px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.single-item {
+    display: flex;
+    max-width: 1000px;
+    max-height: 350px;
+    width: 1000px;
+    height: 350px;
+    object-fit: contain;
+    text-align: center;
+    justify-content: center;
+
+    margin-top: 50px;
+    margin-left: 50px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 15px 25px 0px rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 0, 0, 0.5);
+    border-bottom-width: 5px;
+
+    position: relative;
+    background-color: #fff;
+    background-position: 50%;
+    background-image: url(ressources/Background/pattern-logos-characters.png), var(--gradient-red); 
+}
+
+
+
 
 .dual-container  {
     position: ab;
@@ -82,12 +120,12 @@ html {
     text-align: center;
 }
 
-.item {
+.dual-item {
     display: flex;
     max-width: 500px;
     max-height: 350px;
     width: 500px;
-    height: 500px;
+    height: 350px;
     object-fit: contain;
     text-align: center;
     justify-content: center;
