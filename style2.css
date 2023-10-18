@@ -3,6 +3,11 @@
     src: url('ressources/font/SuperMario256.ttf'); /*URL to font*/
 }
 
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: SuperMario;
     
@@ -166,12 +171,15 @@ body {
     margin-top: 10px;
 }
 
-.CarreNoir{
-    width: 300px;
-    height: 300px;
+.AllignCarreNoir{
+    display:flex;
+    justify-content:space-evenly;
+}
 
+.CarreNoir{
+    max-width: 300px;
+    max-height: 300px;
     object-fit: contain;
-    margin-top: 25px;
     background-color: rgb(0, 0, 0);
     background-image: repeating-linear-gradient(45deg, transparent, transparent 15px, rgb(31, 31, 31) 15px, rgb(31, 31, 31) 31px); 
     margin-top: 50px;
@@ -182,6 +190,7 @@ body {
     box-shadow: 0px 15px 25px 0px rgba(255, 255, 255, 0.3);
     border-color: rgba(0, 0, 0, 0.5);
     border-bottom-width: 5px;
+    
 }
 
 .TitreH2{
@@ -189,8 +198,15 @@ body {
     color: white;
 }
 
-.textCarreN{
+.textCarreNoir{
     color: white;
+}
+
+.imgCarreNoir{
+    width: 300px;
+    height: 300px;
+    
+
 }
 footer {
     position: fixed;  
