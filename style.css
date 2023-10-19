@@ -326,14 +326,25 @@ html {
 
 footer {
     position: absolute;
-    display: flex;
     right: 0;
     left: 0;
     padding: 20px;
     background-color: rgb(80, 0, 0);
     background-image: url(ressources/Background/pattern-logos-characters.webp), var(--gradient-darckred); 
-    color: #fff;
     text-align: center;
+
+    > .text {
+      color: white;
+      font-size: 25px;
+    }
+
+    > .contact {
+      margin: 0;
+      font-size: 20px;
+      color: wheat !important;
+      text-decoration: none;
+    }
+
 }
 
 /*------------------ Mobile vesion ---------------*/
