@@ -206,6 +206,23 @@ body {
     
 }
 
+.GrandCarreNoir{
+    max-width: 1000px;
+    max-height: 2000px;
+    object-fit: contain;
+    background-color: rgb(0, 0, 0);
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 15px, rgb(31, 31, 31) 15px, rgb(31, 31, 31) 31px); 
+    margin-top: 50px;
+    margin-left: 50px;
+
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 15px 25px 0px rgba(255, 255, 255, 0.3);
+    border-color: rgba(0, 0, 0, 0.5);
+    border-bottom-width: 5px;
+    
+}
+
 .TitreH2{
     text-align: center;
     color: white;
@@ -220,14 +237,16 @@ body {
     height: 300px;
     object-fit: contain;
 }
-footer {
-    position: fixed;  
-    left: 8px;  
-    bottom: 5px;  
-    right: 10px;   
-    width: 99%;  
-    background-color: red;  
-    color: white;  
-    text-align: center;  
-}
+
+/*------------------ Mobile vesion ---------------*/
+@media screen and (orientation: portrait) {
+    .CarreNoir {
+        max-height: 1000px;
+    }
+
+    .imgCarreNoir {
+        width: 100px;
+        height: 100px;
+    }
+  }
 
