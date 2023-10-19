@@ -1,6 +1,7 @@
 @font-face {
     font-family: 'SuperMario'; /*a name to be used later*/
     src: url('ressources/font/SuperMario256.ttf'); /*URL to font*/
+    font-display: swap
 }
 
 /* Scroll vers un titre*/
