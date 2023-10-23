@@ -7,6 +7,8 @@ const questionsTypeEnum = Object.freeze({
     Lines: 3,
   });
 
+QUESTIONS = [  ]
+
 class Question{
 	constructor(questionsType,question,answers,validAnswers,scores){
     	this.questionsType=questionsType;
@@ -14,6 +16,8 @@ class Question{
         this.answers=answers;
         this.validAnswers=validAnswers;
         this.scores=scores;
+
+        QUESTIONS.push(this);
     }
     checkQuestion(userAnwser) {
         let userValidAnswers = [];
@@ -29,9 +33,15 @@ class Question{
     }
 }
 
-let question1 = new Question(questionsTypeEnum.qcu, "Quelle est la couleur de la quasquette de mario", ["Bleu", "Rouge"], [1, 0], [5, 10]);
-question1.checkQuestion([1])
+function getRandomQuestion() {
+    return 
+}
+
+new Question(questionsTypeEnum.qcu, "Quelle est la couleur de la quasquette de Mario", ["Bleu", "Rouge", "Verte"], [1], [1]);
+new Question(questionsTypeEnum.qcu, "Quelle est la couleur de la quasquette de Luigi", ["Bleu", "Rouge", "Verte"], [2], [1]);
+
+question1.checkQuestion([3])
 console.log(SCORE)
 
-question1.checkQuestion([1])
+question1.checkQuestion([3])
 console.log(SCORE)
