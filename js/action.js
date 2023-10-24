@@ -1,10 +1,10 @@
 var SCORE = 0
 
 const questionsTypeEnum = Object.freeze({
-    qcm: 0,
-    qcu: 1,
-    dragAndDrop: 2,
-    Lines: 3,
+    "qcm": 0,
+    "qcu": 1,
+    "dragAndDrop": 2,
+    "Lines": 3,
   });
 
 var QUESTIONS = []
@@ -33,13 +33,38 @@ class Question{
     }
 }
 
-function getRandomQuestion() {
-    return 
+function displayQuestion(question) {
+    
+    let answers = question.answers;
+    for (let index = 0; index < answers.length; index++) {
+        const element = answers[index];
+        $(".CarreNoir").first().append('<input type="checkbox" value="1" class="answer">' + element + '</input>')
+    }
+
 }
 
 $.getJSON("js/questions.json", function(content) {
-    console.log(content)
+
+    let questions = content
+    console.log(questions)
+
+    for (let index = 0; index < questions.length; index++) {
+
+        const element = questions[index];
+        
+        let type = questionsTypeEnum[element.questionType]
+        let question = element.question
+        let answers = element.answers
+        let validAnswers = element.validAnswers
+        let scores = element.scores
+
+        new Question(type, question, answers, validAnswers, scores);
+    }
+
 });
 
-new Question(questionsTypeEnum.qcu, "Quelle est la couleur de la quasquette de Mario", ["Bleu", "Rouge", "Verte"], [1], [1]);
-new Question(questionsTypeEnum.qcu, "Quelle est la couleur de la quasquette de Luigi", ["Bleu", "Rouge", "Verte"], [2], [1]);
+$(".showQuestion").click(function(){
+    
+    displayQuestion(QUESTIONS[0])
+
+});
