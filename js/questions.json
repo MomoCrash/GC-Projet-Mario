@@ -1,0 +1,14 @@
+{
+    "questionType": 0,
+    "question" : "Caquette de mario",
+    "answers" : [
+        "Salut",
+        "Réponse 2"
+    ],
+    "validAnswer" : [
+        0
+    ],
+    "scores" : [
+        1
+    ]
+}

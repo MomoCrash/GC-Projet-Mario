@@ -7,7 +7,7 @@ const questionsTypeEnum = Object.freeze({
     Lines: 3,
   });
 
-QUESTIONS = [  ]
+var QUESTIONS = []
 
 class Question{
 	constructor(questionsType,question,answers,validAnswers,scores){
@@ -37,11 +37,9 @@ function getRandomQuestion() {
     return 
 }
 
+$.getJSON("js/questions.json", function(content) {
+    console.log(content)
+});
+
 new Question(questionsTypeEnum.qcu, "Quelle est la couleur de la quasquette de Mario", ["Bleu", "Rouge", "Verte"], [1], [1]);
 new Question(questionsTypeEnum.qcu, "Quelle est la couleur de la quasquette de Luigi", ["Bleu", "Rouge", "Verte"], [2], [1]);
-
-question1.checkQuestion([3])
-console.log(SCORE)
-
-question1.checkQuestion([3])
-console.log(SCORE)
