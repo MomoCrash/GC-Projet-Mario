@@ -1,14 +1,48 @@
-{
-    "questionType": 0,
-    "question" : "Caquette de mario",
-    "answers" : [
-        "Salut",
-        "Réponse 2"
-    ],
-    "validAnswer" : [
-        0
-    ],
-    "scores" : [
-        1
-    ]
-}
+[
+
+    {
+        "questionType": "qcm",
+        "question" : "Caquette de mario",
+        "answers" : [
+            "Salut",
+            "Réponse 2"
+        ],
+        "validAnswer" : [
+            0
+        ],
+        "scores" : [
+            1
+        ]
+    },
+
+    {
+        "questionType": "qcm",
+        "question" : "Caquette de luigi",
+        "answers" : [
+            "Salut",
+            "Réponse 2"
+        ],
+        "validAnswer" : [
+            1
+        ],
+        "scores" : [
+            1
+        ]
+    },
+
+    {
+        "questionType": "qcm",
+        "question" : "Caquette de mes fesse",
+        "answers" : [
+            "Salut",
+            "Réponse 2"
+        ],
+        "validAnswer" : [
+            1
+        ],
+        "scores" : [
+            1
+        ]
+    }
+
+]
