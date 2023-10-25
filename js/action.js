@@ -1,5 +1,4 @@
 var SCORE = 0
-var To_ADD_SCORE = 0;
 
 const questionsTypeEnum = Object.freeze({
     "qcm": 0,
@@ -18,26 +17,25 @@ var QUESTIONS = [];
 var SELECTED_ANSWER = []
 
 class Question{
-	constructor(questionsType,question,answers,validAnswers,scores){
+	constructor(questionsType,question,answers,validAnswers){
     	this.questionsType=questionsType;
       	this.question=question;
         this.answers=answers;
         this.validAnswers=validAnswers;
-        this.scores=scores;
 
         QUESTIONS.push(this);
     }
     checkQuestion(userAnwser) {
         let userValidAnswers = [];
+        let userInvalidAnswers = [];
         for (let index = 0; index < this.validAnswers.length; index++) {
             const element = this.validAnswers[index];
             console.log("element : " + element);
             if (userAnwser.includes(element)) {
-                To_ADD_SCORE += 1;
                 userValidAnswers.push(index);
             }
         }
-        return userValidAnswers;
+        return [ userValidAnswers, userInvalidAnswers ];
     }
 }
 
@@ -57,10 +55,10 @@ function displayQuestion(question) {
 
         $("#anwser_" + index).click(function() {
             if(!SELECTED_ANSWER[index]) {
-                $(this).attr('style', 'background-color: #61616171;');
+                $(this).attr('style', 'background-color: #002fffb0;');
                 SELECTED_ANSWER[index]=true
             } else {
-                $(this).attr('style', 'background-color: #61616100;');
+                $(this).attr('style', 'background-color: #fff;');
                 SELECTED_ANSWER[index]=false
             }
         });
@@ -72,7 +70,6 @@ function displayQuestion(question) {
 $.getJSON("js/questions.json", function(content) {
 
     let questions = content
-    console.log(questions)
 
     for (let index = 0; index < questions.length; index++) {
 
@@ -82,9 +79,8 @@ $.getJSON("js/questions.json", function(content) {
         let question = element.question
         let answers = element.answers
         let validAnswers = element.validAnswers
-        let scores = element.scores
 
-        new Question(type, question, answers, validAnswers, scores);
+        new Question(type, question, answers, validAnswers);
     }
 
 });
@@ -95,6 +91,8 @@ $("#question-next").click(function(){
         $("#question-next").text("Question suivante");
         IS_FIRST = false;
     } else {
+
+        QUESTION_PROGRESSION += 1
 
         let selected = []
         for (let index = 0; index < SELECTED_ANSWER.length; index++) {
@@ -108,23 +106,23 @@ $("#question-next").click(function(){
         }
 
         console.log(selected)
-        let response = CURRENT_QUESTION.checkQuestion(selected);
+        let userAnwser = CURRENT_QUESTION.checkQuestion(selected);
 
-        if (response.length > 0) {
-            for (let index = 0; index < array.length; index++) {
-                const element = array[index];
-                To_ADD_SCORE -= 1;
-            }
-        } else {
-            SCORE += To_ADD_SCORE
-            $("#question-subtitle").text("Score " + SCORE);
+        for (let index = 0; index < userAnwser[0].length; index++) {
+            const element = userAnwser[0][index];
+            SCORE += 1;
         }
+        for (let index = 0; index < userAnwser[1].length; index++) {
+            const element = userAnwser[1][index];
+            SCORE -= 1;
+        }
+        
+        $("#question-subtitle").text("Score " + SCORE);
 
     }
     
     $('#question-card').empty();
 
-    QUESTION_PROGRESSION += 1
     let progression = (QUESTION_PROGRESSION * 100)/QUESTION_NUMBER;
     $('#question-progress').attr('style', 'width: ' + progression + '%').text(progression + "%")
 
