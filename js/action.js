@@ -7,7 +7,11 @@ const questionsTypeEnum = Object.freeze({
     "Lines": 3,
   });
 
-var QUESTIONS = []
+var IS_FIRST = true;
+
+var CURRENT_QUESTION = null;
+var QUESTIONS = [];
+var SELECTED_ANSWER = []
 
 class Question{
 	constructor(questionsType,question,answers,validAnswers,scores){
@@ -29,6 +33,7 @@ class Question{
                 userValidAnswers.push(index);
             }
         }
+        $("#question-subtitle").text("Score " + SCORE);
         return userValidAnswers;
     }
 }
@@ -36,10 +41,27 @@ class Question{
 function displayQuestion(question) {
     
     let answers = question.answers;
+
+    $("#question-title").text(question.question);
+    $("#question-subtitle").text("Score " + SCORE);
+
     for (let index = 0; index < answers.length; index++) {
-        console.log(answers)
+
         const element = answers[index];
-        $(".CarreNoir").first().append('<input type="checkbox" value="1" class="col">' + element + '</input>')
+        SELECTED_ANSWER[index]=false
+
+        $("#question-card").first().append('<li id="anwser_' + index + '" class="list-group-item"><div class="card-answer">' + element + '</div></li>');
+
+        $("#anwser_" + index).click(function() {
+            if(!SELECTED_ANSWER[index]) {
+                $(this).attr('style', 'background-color: #61616171;');
+                SELECTED_ANSWER[index]=true
+            } else {
+                $(this).attr('style', 'background-color: #61616100;');
+                SELECTED_ANSWER[index]=false
+            }
+        });
+
     }
 
 }
@@ -64,8 +86,31 @@ $.getJSON("js/questions.json", function(content) {
 
 });
 
-$(".showQuestion").click(function(){
+$("#question-next").click(function(){
+
+    if (IS_FIRST) {
+        $("#question-next").text("Question suivante");
+        IS_FIRST = false;
+    } else {
+
+        let selected = []
+        for (let index = 0; index < SELECTED_ANSWER.length; index++) {
+            const element = SELECTED_ANSWER[index];
+            if (element) {
+                selected.push(index)
+            }
+        }
+        if (selected.length == 0) {
+            return;
+        }
+
+        console.log(selected)
+        CURRENT_QUESTION.checkQuestion(selected);
+
+    }
     
-    displayQuestion(QUESTIONS[0])
+    $('#question-card').empty();
+    CURRENT_QUESTION = QUESTIONS[Math.floor(Math.random()*QUESTIONS.length)]
+    displayQuestion(CURRENT_QUESTION)
 
 });

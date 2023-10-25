@@ -2,12 +2,14 @@
 
     {
         "questionType": "qcm",
-        "question" : "Caquette de mario",
+        "question" : "De quelle couleur est la casquette de mario !",
         "answers" : [
-            "Salut",
-            "Réponse 2"
+            "Rouge",
+            "Vert",
+            "Bleu",
+            "Noir"
         ],
-        "validAnswer" : [
+        "validAnswers" : [
             0
         ],
         "scores" : [
@@ -20,9 +22,9 @@
         "question" : "Caquette de luigi",
         "answers" : [
             "Salut",
-            "Réponse 2"
+            "Réponsgsdfgsdfge 2"
         ],
-        "validAnswer" : [
+        "validAnswers" : [
             1
         ],
         "scores" : [
@@ -34,10 +36,10 @@
         "questionType": "qcm",
         "question" : "Caquette de mes fesse",
         "answers" : [
-            "Salut",
-            "Réponse 2"
+            "Salut fesse",
+            "RéponsqZEe 2"
         ],
-        "validAnswer" : [
+        "validAnswers" : [
             1
         ],
         "scores" : [
