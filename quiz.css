@@ -52,6 +52,22 @@ html {
   transform: scale(1.1);
 }
 
+.nav {
+  margin-bottom: 10px; 
+  background-color: rgb(80, 0, 0); 
+  background-image: url(ressources/Background/pattern-logos-characters.webp), var(--gradient-darck);
+}
+
+.nav-item :hover{
+  transition: all .1s ease-in ;
+        transform: scale(1.2);
+}
+
+.nav-item :active {
+  transition: all .1s ease-in;
+  transform: scale(2);
+  user-select: none;
+}
 /*---------- titles ----------*/
 
 .title {
