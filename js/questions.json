@@ -1,8 +1,8 @@
 [
 
     {
-        "questionType": "qcm",
-        "question" : "De quelle couleur est la casquette de mario !",
+        "questionType": "qcu",
+        "question" : "De quelle couleur est la casquette de Mario ?",
         "answers" : [
             "Rouge",
             "Vert",
@@ -11,39 +11,50 @@
         ],
         "validAnswers" : [
             0
+        ]
+    },
+
+    {
+        "questionType": "qcu",
+        "question" : "De quelle couleur est la casquette de Luigi ?",
+        "answers" : [
+            "Orange",
+            "Vert",
+            "Rouge",
+            "Noir"
         ],
-        "scores" : [
+        "validAnswers" : [
             1
         ]
     },
 
     {
         "questionType": "qcm",
-        "question" : "Caquette de luigi",
+        "question" : "Quelle item permet de faire grandir mario ?",
         "answers" : [
-            "Salut",
-            "Réponsgsdfgsdfge 2"
+            "La fleur",
+            "Le mini-champignon",
+            "Le champignon 1-up",
+            "Le champignon rouge"
         ],
         "validAnswers" : [
-            1
-        ],
-        "scores" : [
-            1
+            0,
+            3
+
         ]
     },
 
     {
         "questionType": "qcm",
-        "question" : "Caquette de mes fesse",
+        "question" : "Quelle item permet de lancer des boules de feux ?",
         "answers" : [
-            "Salut fesse",
-            "RéponsqZEe 2"
+            "Le Mario pingouin",
+            "La Super Feuille",
+            "La fleur de feu",
+            "Le champignon rouge"
         ],
         "validAnswers" : [
-            1
-        ],
-        "scores" : [
-            1
+            2
         ]
     }
 

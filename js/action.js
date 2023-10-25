@@ -1,4 +1,5 @@
 var SCORE = 0
+var To_ADD_SCORE = 0;
 
 const questionsTypeEnum = Object.freeze({
     "qcm": 0,
@@ -10,6 +11,9 @@ const questionsTypeEnum = Object.freeze({
 var IS_FIRST = true;
 
 var CURRENT_QUESTION = null;
+var QUESTION_NUMBER = 10;
+var QUESTION_PROGRESSION = 0;
+
 var QUESTIONS = [];
 var SELECTED_ANSWER = []
 
@@ -29,11 +33,10 @@ class Question{
             const element = this.validAnswers[index];
             console.log("element : " + element);
             if (userAnwser.includes(element)) {
-                SCORE += this.scores[index]
+                To_ADD_SCORE += 1;
                 userValidAnswers.push(index);
             }
         }
-        $("#question-subtitle").text("Score " + SCORE);
         return userValidAnswers;
     }
 }
@@ -105,11 +108,27 @@ $("#question-next").click(function(){
         }
 
         console.log(selected)
-        CURRENT_QUESTION.checkQuestion(selected);
+        let response = CURRENT_QUESTION.checkQuestion(selected);
+
+        if (response.length > 0) {
+            for (let index = 0; index < array.length; index++) {
+                const element = array[index];
+                To_ADD_SCORE -= 1;
+            }
+        } else {
+            SCORE += To_ADD_SCORE
+            $("#question-subtitle").text("Score " + SCORE);
+        }
 
     }
     
     $('#question-card').empty();
+
+    QUESTION_PROGRESSION += 1
+    let progression = (QUESTION_PROGRESSION * 100)/QUESTION_NUMBER;
+    $('#question-progress').attr('style', 'width: ' + progression + '%').text(progression + "%")
+
+    To_ADD_SCORE = 0
     CURRENT_QUESTION = QUESTIONS[Math.floor(Math.random()*QUESTIONS.length)]
     displayQuestion(CURRENT_QUESTION)
 
