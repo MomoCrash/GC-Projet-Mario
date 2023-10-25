@@ -37,8 +37,9 @@ function displayQuestion(question) {
     
     let answers = question.answers;
     for (let index = 0; index < answers.length; index++) {
+        console.log(answers)
         const element = answers[index];
-        $(".CarreNoir").first().append('<input type="checkbox" value="1" class="answer">' + element + '</input>')
+        $(".CarreNoir").first().append('<input type="checkbox" value="1" class="col">' + element + '</input>')
     }
 
 }
