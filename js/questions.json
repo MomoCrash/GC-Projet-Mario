@@ -30,7 +30,7 @@
 
     {
         "questionType": "qcm",
-        "question" : "Quelle item permet de faire grandir mario ?",
+        "question" : "Quels items permet de faire grandir mario ?",
         "answers" : [
             "La fleur",
             "Le mini-champignon",
@@ -45,8 +45,8 @@
     },
 
     {
-        "questionType": "qcm",
-        "question" : "Quelle item permet de lancer des boules de feux ?",
+        "questionType": "qcu",
+        "question" : "Quel item permet de lancer des boules de feux ?",
         "answers" : [
             "Le Mario pingouin",
             "La Super Feuille",
@@ -56,6 +56,241 @@
         "validAnswers" : [
             2
         ]
+    },
+
+    {
+        "questionTyper": "qcu",
+        "question" : "Qui donne sa voix à mario ?",
+        "answers" : [
+            "DONALD REIGNOUX",
+            "GILLES MORVAN",
+            "JOSE LUCCIONI",
+            "CHARLES MARTINET"
+        ],
+        "validAnswers" :[
+            3
+        ]
+    },
+
+    {
+        "questionTyper": "qcu",
+        "question" : "Sur quelle console est sortie super mario bros ?",
+        "answers" : [
+            "Nes",
+            "Snes",
+            "Ds",
+            "3Ds"
+        ],
+        "validAnswers" :[
+            0
+        ]
+    },
+
+    {
+        "questionTyper": "qcu",
+        "question" : "En quelle année est sortie le tout premier mario ?",
+        "answers" : [
+            "1983",
+            "1985",
+            "1981",
+            "1988"
+        ],
+        "validAnswers" :[
+            1
+        ]
+    },
+
+    {
+        "questionTyper": "qcu",
+        "question" : " New Super Mario Bros Wii est le :",
+        "answers" : [
+            "8ème jeu de la série ?",
+            "12ème jeu de la série ?",
+            "14ème jeu de la série ?",
+            "23ème jeu de la série ?"
+        ],
+        "validAnswers" :[
+            2
+        ]
+    },
+
+    {
+        "questionTyper": "qcu",
+        "question" : "A combien d'exemplaire c'est vendu New Super Mario Bros Wii",
+        "answers" : [
+            "1.000.000 exemplaires ?",
+            "14.705.000 exemplaires ?",
+            "14.750.000 exemplaires ?",
+            "16.843.000 exemplaires ?"
+        ],
+        "validAnswers" :[
+            1
+        ]
+    },
+
+    {
+        "questionTyper": "qcu",
+        "question" : "Combien de nouveaux personnages accueil super mario bros wonder ?",
+        "answers" : [
+            "12",
+            "4",
+            "7",
+            "2"
+        ],
+        "validAnswers" :[
+            2
+        ]
+    },
+
+    {
+        "questionTyper": "qcu",
+        "question" : "Combien de personnages sont présent sur notre site ?",
+        "answers" : [
+            "14",
+            "18",
+            "20",
+            "24"
+        ],
+        "validAnswers" :[
+            3
+        ]
+    },
+
+    {
+        "questionTyper": "qcm",
+        "question" : "Sur notre site quels personages ce trouve sous une princesses ?",
+        "answers" : [
+            "Kamek",
+            "Carottin",
+            "Koopa",
+            "Koopalings"
+        ],
+        "validAnswers" :[
+            0,
+            3
+        ]
+    },
+
+    {
+        "questionTyper": "qcu",
+        "question" : "Combien de personnages humain sont présent sur notre site ?",
+        "answers" : [
+            "2",
+            "4",
+            "6",
+            "8"
+        ],
+        "validAnswers" :[
+            1
+        ]
+    },
+
+    {
+        "questionTyper": "qcu",
+        "question" : "Combien d'objet sont présent sur notre site ?",
+        "answers" : [
+            "3",
+            "8",
+            "11",
+            "13"
+        ],
+        "validAnswers" :[
+            3
+        ]
+    },
+
+    {
+        "questionTyper": "qcm",
+        "question" : "Quels objets permet de lancer de la glace ?",
+        "answers" : [
+            "Fleur de glace",
+            "Super etoile",
+            "pinguin",
+            "mini champi"
+        ],
+        "validAnswers" :[
+            0,
+            2
+        ]
+    },
+
+    {
+        "questionTyper": "qcu",
+        "question" : "Dans quel jeu est apparut pour la première foi le mini champi ?",
+        "answers" : [
+            "Mario party 4",
+            "New super bros ds",
+            "Super mario World",
+            "Mario party 5"
+        ],
+        "validAnswers" :[
+            0
+        ]
+    },
+
+    {
+        "questionTyper": "qcu",
+        "question" : "Les blocs sont :",
+        "answers" : [
+            "Des personnages ?",
+            "Des element de decor ?",
+            "Des pieges ?",
+            "Des murs ?"
+        ],
+        "validAnswers" :[
+            1
+        ]
+    },
+
+    {
+        "questionTyper": "qcu",
+        "question" : "Quels items permettent de voler ? ",
+        "answers" : [
+            "Super feuille",
+            "La plume",
+            "Champi helice",
+            "Champi 1up"
+        ],
+        "validAnswers" :[
+            0,
+            1,
+            2
+        ]
+    },
+
+    {
+        "questionTyper": "qcu",
+        "question" : "Combien de personnages portes une carapace ? ",
+        "answers" : [
+            "3",
+            "4",
+            "7",
+            "10"
+        ],
+        "validAnswers" :[
+            3
+        ]
+    },
+
+    {
+        "questionTyper": "qcu",
+        "question" : "Combien de personnages peuvent utiliser des attaques de feu ? (items inclus)",
+        "answers" : [
+            "2",
+            "6",
+            "8",
+            "4"
+        ],
+        "validAnswers" :[
+            2
+        ]
     }
+
+
+
+
+
+
+
 
 ]
