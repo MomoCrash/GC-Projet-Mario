@@ -18,7 +18,7 @@ var IS_FINISH = false;
 var QUESTIONS = [];
 var ANWSERED_QUESTION = [];
 var CURRENT_QUESTION = null;
-var QUESTION_NUMBER = 10;
+var QUESTION_NUMBER = 15;
 var QUESTION_PROGRESSION = 0;
 
 // Selected anwser
@@ -150,7 +150,7 @@ function updateCard(isProgression) {
     if (isProgression) {
         // Update Progression
         let progression = (QUESTION_PROGRESSION * 100)/QUESTION_NUMBER;
-        $('#question-progress').attr('style', 'width: ' + progression + '%').text(progression + "%")
+        $('#question-progress').attr('style', 'width: ' + progression + '%').text(Math.floor(progression) + "%")
     }
 }
 
