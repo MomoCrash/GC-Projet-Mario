@@ -60,7 +60,7 @@
 
     {
         "questionTyper": "qcu",
-        "question" : "Qui donne sa voix à mario ?",
+        "question" : "Qui donne sa voix a mario ?",
         "answers" : [
             "DONALD REIGNOUX",
             "GILLES MORVAN",
@@ -88,7 +88,7 @@
 
     {
         "questionTyper": "qcu",
-        "question" : "En quelle année est sortie le tout premier mario ?",
+        "question" : "En quelle annee est sortie le tout premier mario ?",
         "answers" : [
             "1983",
             "1985",
@@ -104,10 +104,10 @@
         "questionTyper": "qcu",
         "question" : " New Super Mario Bros Wii est le :",
         "answers" : [
-            "8ème jeu de la série ?",
-            "12ème jeu de la série ?",
-            "14ème jeu de la série ?",
-            "23ème jeu de la série ?"
+            "8eme jeu de la serie ?",
+            "12eme jeu de la serie ?",
+            "14eme jeu de la serie ?",
+            "23eme jeu de la serie ?"
         ],
         "validAnswers" :[
             2
@@ -144,7 +144,7 @@
 
     {
         "questionTyper": "qcu",
-        "question" : "Combien de personnages sont présent sur notre site ?",
+        "question" : "Combien de personnages sont present sur notre site ?",
         "answers" : [
             "14",
             "18",
@@ -173,7 +173,7 @@
 
     {
         "questionTyper": "qcu",
-        "question" : "Combien de personnages humain sont présent sur notre site ?",
+        "question" : "Combien de personnages humain sont present sur notre site ?",
         "answers" : [
             "2",
             "4",
@@ -187,7 +187,7 @@
 
     {
         "questionTyper": "qcu",
-        "question" : "Combien d'objet sont présent sur notre site ?",
+        "question" : "Combien d'objet sont present sur notre site ?",
         "answers" : [
             "3",
             "8",
@@ -216,7 +216,7 @@
 
     {
         "questionTyper": "qcu",
-        "question" : "Dans quel jeu est apparut pour la première foi le mini champi ?",
+        "question" : "Dans quel jeu est apparut pour la premiere foi le mini champi ?",
         "answers" : [
             "Mario party 4",
             "New super bros ds",
@@ -284,13 +284,32 @@
         "validAnswers" :[
             2
         ]
+    },
+    {
+        "questionTyper": "qcu",
+        "question" : "Quel est le dernier jeu Super Mario Bros sorti ?",
+        "answers" : [
+            "Mario Bros 3",
+            "New New Mario Bros",
+            "Super Mario Bros",
+            "Mario Bros Wonder"
+        ],
+        "validAnswers" :[
+            3
+        ]
+    },
+    {
+        "questionTyper": "qcm",
+        "question" : "Quelles personnages sont ou peuvent etre rouge ?",
+        "answers" : [
+            "Toad",
+            "Mario",
+            "Luigi",
+            "Daisy"
+        ],
+        "validAnswers" :[
+            0,
+            1
+        ]
     }
-
-
-
-
-
-
-
-
 ]
