@@ -31,11 +31,10 @@
       <a class="nav-link" href="objets.html" style="color: white;">objets</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="quiz.html" style="color: white; background-color: rgba(195, 0, 255, 0.329);">quiz</a>
-    </li>
+      <a class="nav-link " href="quiz.html" style="color: white;">quiz</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="login.html" style="color: white;">connexion</a>
+      <a class="nav-link active" href="login.html" style="color: white; background-color: rgba(195, 0, 255, 0.329);">connexion</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="https://www.nintendo.fr/Rechercher/Rechercher-299117.html?q=Mario%20Bros&f=147394-5-2-3-1-32-43" style="color: white;">Acheter</a>
@@ -48,34 +47,27 @@
       <div class="row d-flex justify-content-center">
         
         <div class="md-6 align-self-center">
-          <div class="card text-center" style="width: 20rem; height: 35rem; max-height: 50rem;">
+          <div class="card text-center" style="width: 20rem; height: 30rem; max-height: 50rem;">
             <div class="card-header">
-              <h5 id="question-title" class="card-title">Faire le quiz</h5>
-              <h6 id="question-subtitle" class="card-subtitle mb-2 text-body-secondary">Duree: 10 minutes</h6>
+              <h5 id="question-title" class="card-title">Se connecter</h5>
+              <h6 id="question-subtitle" class="card-subtitle mb-2 text-body-secondary">Pas de compte ? Creer en un.</h6>
             </div>
             <div class="card-body">
-              <ul  id="question-card"> Vous devez repondre a chaque question par une ou plusieurs reponse, choissisez chaque reponse que vous pensez valide puis valider avec "Question suivante" </ul>
-              <div id="question-difficulty">
-                <button type="button" id="question-easy" class="btn btn-secondary"><div class="quiz-button">Facile</div></button>
-                <button type="button" id="question-medium" class="btn btn-secondary"><div class="quiz-button">Moyen</div></button>
-                <br><br>
-                <button type="button" id="question-hard" class="btn btn-secondary"><div class="quiz-button">Difficile</div></button>
-              </div>
-            </div>
-            <div class="card-footer text-body-secondary">
-              <div class="col-5 align-self-center">
-                <button type="button" id="question-next" class="btn btn-secondary"><div class="quiz-button">Commencez le Quiz !</div></button>
-              </div>
-              <br>
-              <div id="progress-bar">
-                
-              </div>
+                <form action="/php/login.php" method="post">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Adresse email</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Votre email">
+                      <small id="emailHelp" class="form-text text-muted">Ne divulgez jamais votre email.</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Mot de passe</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="········">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Connexion</button>
+                </form>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row d-flex justify-content-center">
-        <button type="button" id="question-reset" class="btn btn-secondary"><div class="quiz-button">Recommencer</div></button>
       </div>
     </div>
 
