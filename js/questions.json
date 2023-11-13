@@ -59,7 +59,7 @@
     },
 
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : "Qui donne sa voix a mario ?",
         "answers" : [
             "DONALD REIGNOUX",
@@ -73,7 +73,7 @@
     },
 
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : "Sur quelle console est sortie super mario bros ?",
         "answers" : [
             "Nes",
@@ -87,7 +87,7 @@
     },
 
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : "En quelle annee est sortie le tout premier mario ?",
         "answers" : [
             "1983",
@@ -101,7 +101,7 @@
     },
 
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : " New Super Mario Bros Wii est le :",
         "answers" : [
             "8eme jeu de la serie ?",
@@ -115,7 +115,7 @@
     },
 
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : "A combien d'exemplaire c'est vendu New Super Mario Bros Wii",
         "answers" : [
             "1.000.000 exemplaires ?",
@@ -129,7 +129,7 @@
     },
 
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : "Combien de nouveaux personnages accueil super mario bros wonder ?",
         "answers" : [
             "12",
@@ -143,7 +143,7 @@
     },
 
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : "Combien de personnages sont present sur notre site ?",
         "answers" : [
             "14",
@@ -157,7 +157,7 @@
     },
 
     {
-        "questionType": "qcm",
+        "questionTyper": "qcm",
         "question" : "Sur notre site quels personages ce trouve sous une princesses ?",
         "answers" : [
             "Kamek",
@@ -172,7 +172,7 @@
     },
 
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : "Combien de personnages humain sont present sur notre site ?",
         "answers" : [
             "2",
@@ -186,7 +186,7 @@
     },
 
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : "Combien d'objet sont present sur notre site ?",
         "answers" : [
             "3",
@@ -200,7 +200,7 @@
     },
 
     {
-        "questionType": "qcm",
+        "questionTyper": "qcm",
         "question" : "Quels objets permet de lancer de la glace ?",
         "answers" : [
             "Fleur de glace",
@@ -215,7 +215,7 @@
     },
 
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : "Dans quel jeu est apparut pour la premiere foi le mini champi ?",
         "answers" : [
             "Mario party 4",
@@ -229,7 +229,7 @@
     },
 
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : "Les blocs sont :",
         "answers" : [
             "Des personnages ?",
@@ -243,7 +243,7 @@
     },
 
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : "Quels items permettent de voler ? ",
         "answers" : [
             "Super feuille",
@@ -259,7 +259,7 @@
     },
 
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : "Combien de personnages portes une carapace ? ",
         "answers" : [
             "3",
@@ -273,7 +273,7 @@
     },
 
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : "Combien de personnages peuvent utiliser des attaques de feu ? (items inclus)",
         "answers" : [
             "2",
@@ -286,7 +286,7 @@
         ]
     },
     {
-        "questionType": "qcu",
+        "questionTyper": "qcu",
         "question" : "Quel est le dernier jeu Super Mario Bros sorti ?",
         "answers" : [
             "Mario Bros 3",
@@ -299,7 +299,7 @@
         ]
     },
     {
-        "questionType": "qcm",
+        "questionTyper": "qcm",
         "question" : "Quelles personnages sont ou peuvent etre rouge ?",
         "answers" : [
             "Toad",
