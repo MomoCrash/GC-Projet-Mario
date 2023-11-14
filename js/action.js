@@ -82,6 +82,7 @@ $("#question-easy").click(function(){
     $("#question-easy").attr("style","background-color: #ffd000"),
     $("#question-medium").attr("style","background-color: #6c757d"),
     $("#question-hard").attr("style","background-color: #6c757d"),POSITIVE_MULTIPLIER=2,NEGATIVE_MULTIPLIER=1
+    QUESTION_NUMBER = 5;
 }),
 
 // Set the difficulty on medium
@@ -89,6 +90,7 @@ $("#question-medium").click(function(){
     $("#question-easy").attr("style","background-color: #6c757d"),
     $("#question-medium").attr("style","background-color: #ffd000"),
     $("#question-hard").attr("style","background-color: #6c757d"),POSITIVE_MULTIPLIER=1,NEGATIVE_MULTIPLIER=1
+    QUESTION_NUMBER = 12;
 }),
 
 // Set the difficulty on hard
@@ -96,6 +98,7 @@ $("#question-hard").click(function(){
     $("#question-easy").attr("style","background-color: #6c757d"),
     $("#question-medium").attr("style","background-color: #6c757d"),
     $("#question-hard").attr("style","background-color: #ffd000"),POSITIVE_MULTIPLIER=1,NEGATIVE_MULTIPLIER=2
+    QUESTION_NUMBER = 20;
 });
 
 // The main trame of quiz
