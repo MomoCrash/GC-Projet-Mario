@@ -2,7 +2,7 @@
 /* -----------------------              ADMINISTRATION PART ------------------------------- */
 
 $("#btn-editor").click(function() {
-    location.href='.html';
+    location.href='editor.php';
 });
 
 

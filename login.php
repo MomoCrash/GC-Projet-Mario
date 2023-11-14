@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
 
+include "php/sql-manager.php";
+
+session_start();
+if (isset($_SESSION['name'])) {
+  $name = $_SESSION['name'];
+} else {
+  $name = "Invite";
+}
+if (isset($_SESSION['admin'])) {
+  $admin = $_SESSION['admin'];
+} else {
+  $admin = 0;
+}
+
+$isAdmin = false;
+if (isset($admin)) {
+  if ($admin == 1) {
+    $isAdmin = true;
+  }
+}
+?>
 
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -42,6 +64,15 @@
     <li class="nav-item">
       <a class="nav-link active" href="login.php" style="color: white; background-color: rgba(195, 0, 255, 0.329);">connexion</a>
     </li>
+    <?php
+    
+    if ($isAdmin) {
+      echo '<li class="nav-item">
+              <a class="nav-link" href="editor.php" style="color: white;">editor</a>
+            </li>';
+    }
+    
+    ?>
   </ul>    
   
   <div class="vertical-center">
@@ -75,14 +106,6 @@
                   $password = $_POST["password"]; 
                   $mail = $_POST["email"];
 
-                  $bdd_servername = "localhost";
-                  $bdd_username = "root";
-                  $bdd_password = "root";
-
-                  try {
-                    
-                    $conn = new PDO("mysql:host=$bdd_servername;dbname=champicorp", $bdd_username, $bdd_password);
-                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     $request =  $conn->prepare("SELECT * FROM users WHERE mail='" . $mail . "' AND  password='" . $password . "';");
                     $request->execute();
                     //nombre de lignes retournées
@@ -91,7 +114,6 @@
                     if ($count > 0) {
                       echo "Vous etes connecte";
                       $currentRow  = $request -> fetch();
-                      session_start();
                       $_SESSION['name'] = $currentRow['name'];
                       $_SESSION['admin'] = $currentRow['admin'];
                       header('Location: quiz.php');
@@ -99,11 +121,6 @@
                     } else {
                       echo "Identifiants inccorectes";
                     }
-                    
-                    
-                  } catch(PDOException $e) {
-                    echo "Connection failed: " . $e->getMessage();
-                  }
 
                 }
 
@@ -117,7 +134,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="js/login.js"></script> 
 
   </body>
 </html>

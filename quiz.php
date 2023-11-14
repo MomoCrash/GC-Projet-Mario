@@ -2,19 +2,25 @@
 <html lang="en">
 
 <?php
+session_start();
+if (isset($_SESSION['name'])) {
+  $name = $_SESSION['name'];
+} else {
+  $name = "Invite";
+}
+if (isset($_SESSION['admin'])) {
+  $admin = $_SESSION['admin'];
+} else {
+  $admin = 0;
+}
 
-    session_start();
-    $name = $_SESSION['name'];
-    $admin = $_SESSION['admin'];
-
-    $isAdmin = false;
-    if (isset($admin)) {
-      if ($admin == 1) {
-        $isAdmin = true;
-      }
-    }
-
-  ?>
+$isAdmin = false;
+if (isset($admin)) {
+  if ($admin == 1) {
+    $isAdmin = true;
+  }
+}
+?>
 
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -56,6 +62,16 @@
     <li class="nav-item">
       <a class="nav-link" href="login.php" style="color: white;">connexion</a>
     </li>
+
+    <?php
+    
+    if ($isAdmin) {
+      echo '<li class="nav-item">
+              <a class="nav-link" href="editor.php" style="color: white;">editor</a>
+            </li>';
+    }
+    
+    ?>
   </ul> 
   
   <div class="vertical-center">
