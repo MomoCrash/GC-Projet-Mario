@@ -2,6 +2,9 @@
 <html lang="en">
 
 <?php
+
+include "php/sql-manager.php";
+
 session_start();
 if (isset($_SESSION['name'])) {
   $name = $_SESSION['name'];
@@ -20,6 +23,16 @@ if (isset($admin)) {
     $isAdmin = true;
   }
 }
+
+$request =  $conn->prepare("SELECT * FROM quiz ORDER BY RAND() LIMIT 10");
+$request->execute();
+
+$array_num = [];
+
+while ($row = $request->fetch()) {
+  array_push($array_num, $row);
+}
+
 ?>
 
 <head>
@@ -135,6 +148,8 @@ if (isset($admin)) {
           ?>
       </div>
     </div>
+
+    <div class="quiz-question" data-service="<?= htmlspecialchars(json_encode($array_num)) ?>">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
