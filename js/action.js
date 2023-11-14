@@ -1,12 +1,3 @@
-
-/* -----------------------              ADMINISTRATION PART ------------------------------- */
-
-$("#btn-editor").click(function() {
-    location.href='.html';
-});
-
-
-/* -----------------------              QUIZ PART ------------------------------- */
 var SCORE = 0
 
 const questionsTypeEnum = Object.freeze({

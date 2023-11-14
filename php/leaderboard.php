@@ -8,23 +8,29 @@ include 'user.php';
 
 try {
 
-    $bestScores = $conn->prepare("INSERT INTO scores(score_id, score, user_id) VALUES(NULL, score_id, score, user_id");
-    $bestScores->bindParam(':score_id',$score_id , PDO::PARAM_INT);
+  // PAs Maintenant
+  //$score = 2;
+  //$user_id = 0;
+    
+    // Sécurité
+    /*$bestScores = $conn->prepare("INSERT INTO scores(score_id, score, user_id) VALUES(NULL, :score, :user_id)");
     $bestScores->bindParam(':score',$score , PDO::PARAM_INT);
     $bestScores->bindParam(':user_id',$user_id , PDO::PARAM_INT);
 
-    $besteScores->execute();
+    $bestScores->execute();*/
+
+    $bestScores = $conn->prepare("SELECT name, score FROM scores JOIN users ON scores.user_id = users.user_id ORDER BY score DESC LIMIT 10;");
+    $bestScores->execute();
     
     //nombre de lignes retournées
-    echo "<p>rows ".$bestScores->rowCount(10)."</p>";
+    echo "<p>rows ".$bestScores->rowCount()."</p>";
     //affichage d’une colonne ligne par ligne
     while ($row = $bestScores->fetch()) {
-      echo $row['score'] . "<br>";
+      echo $row['name'].$row['score'] . "<br>";
     }
-  
-  
+   
   } catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    echo "insert  failed: " . $e->getMessage();
   }
 
 ?>
