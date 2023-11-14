@@ -86,6 +86,20 @@ function updateCard(t){
     $("#question-progress").attr("style","width: "+r+"%").text(Math.floor(r)+"%")}
 }
 
+$(document).ready(function() {
+    $('.bestScores').each(function() {
+        var questions = $(this).data('service');
+
+        console.log(questions);
+
+        questions.forEach(element => {
+            console.log(element);
+        });
+
+        // Var "service" now contains the value of $myService->getValue();
+    });
+});
+
 // Set the difficulty on easy
 $("#question-easy").click(function(){
     $("#question-easy").attr("style","background-color: #ffd000"),
