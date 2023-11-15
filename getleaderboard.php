@@ -2,12 +2,12 @@
 
 include "php/sql-manager.php"; 
 
-echo $_POST["newScore"];
-$_POST["id"];
 
 //todo insert sql du new score (penser à utiliser bindParam pour mettre les paramètres sql)
 
-$newScore = $conn->prepare("INSERT INTO scores (score, user_id) VALUES (465,0)"); 
+$newScore = $conn->prepare("INSERT INTO scores (score, user_id) VALUES (:newScore,:id)"); 
+$newScore->bindParam(':newscore',$_POST["newScore"], PDO::PARAM_INT);
+$newScore->bindParam(':newId',$_POST["id"], PDO::PARAM_INT);
 $newScore->execute();
 
 $bestScores = $conn->prepare("SELECT name, score FROM scores JOIN users ON scores.user_id = users.user_id ORDER BY score DESC LIMIT 10;");
