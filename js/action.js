@@ -86,15 +86,18 @@ function updateCard(t){
     $("#question-progress").attr("style","width: "+r+"%").text(Math.floor(r)+"%")}
 }
 
+// Leaderboard
+
 $(document).ready(function() {
     $('.bestScores').each(function() {
-        var questions = $(this).data('service');
+        var scores = $(this).data('service');
 
-        console.log(questions);
+        //console.log(scores);
 
-        questions.forEach(element => {
+        scores.forEach(element => {
             console.log(element);
         });
+    
 
         // Var "service" now contains the value of $myService->getValue();
     });
