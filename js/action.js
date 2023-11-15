@@ -133,10 +133,8 @@ $("#question-next").click(function(){
             //requete AJAX avec jquery (fonction getJSON)
 
             //get leaderboard
-            $(document).ready(function(){
-                $.post("getleaderboard.php", {newScore: 10, id: 12}, function(response){
-                    console.log(response);
-                });
+            $.post("getleaderboard.php", {newScore: 10, id: 12}, function(response){
+                console.log("qfsfgdqsdgqs" + response);
             });
             //recever les données => append
     
