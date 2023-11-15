@@ -13,4 +13,14 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 
+function refracto_text($text) {
+    
+    $text = strtolower($text);
+    $text = stripslashes($text);
+    $text = trim($text);
+    $text = htmlspecialchars($text);
+
+    return $text;
+}
+
 ?>

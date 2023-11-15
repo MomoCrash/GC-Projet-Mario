@@ -16,6 +16,7 @@ if (isset($_SESSION['admin'])) {
 } else {
   $admin = 0;
 }
+session_regenerate_id(true);
 
 $isAdmin = false;
 if (isset($admin)) {
@@ -24,7 +25,7 @@ if (isset($admin)) {
   }
 }
 
-$request =  $conn->prepare("SELECT * FROM quiz ORDER BY RAND() LIMIT 10");
+$request =  $conn->prepare("SELECT question,question_type,anwsers,valid_anwsers FROM quiz ORDER BY RAND() LIMIT 10");
 $request->execute();
 
 $array_num = [];

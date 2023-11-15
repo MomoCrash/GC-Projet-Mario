@@ -52,7 +52,7 @@ $(document).ready(function() {
         console.log(questions);
 
         questions.forEach(element => {
-            console.log(element);
+            new Question(questionsTypeEnum[element.question_type], element.question, element.answers, element.valid_anwsers)
         });
 
         // Var "service" now contains the value of $myService->getValue();
