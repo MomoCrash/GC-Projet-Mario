@@ -19,6 +19,6 @@ while ($row = $bestScores->fetch()) {
     array_push($arrayScore, $row);
 }
 
-echo htmlspecialchars(json_encode($arrayScore)) 
+echo '<div class="bestScores" data-service="<?= htmlspecialchars(json_encode($arrayScore)) ?>">'
 
 ?>
