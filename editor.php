@@ -93,8 +93,8 @@ if (isset($admin) && $admin == 1) {
         <label for="qst-valid-anwser-' . $row["question_id"] . '">Index des reponses correctes</label>
         <textarea id="qst-valid-anwser-' . $row["question_id"] . '" class="card-subtitle mb-2 text-body-secondary" style="readonly=false;" name="qst valid anwsers '  . $row["question_id"] . '">'  . implode(";", json_decode($row["valid_anwsers"])) . '</textarea>
         
-        <button type="submit" id="connection-button" class="btn btn-primary" style="background-color: green;">Sauvegarder</button>
-        <button id="connection-button" class="btn btn-primary" style="background-color: red;">Supprimer</button>
+        <button name="save" type="submit" id="connection-button" class="btn btn-primary" style="background-color: green;">Sauvegarder</button>
+        <button name="remove" id="connection-button" class="btn btn-primary" style="background-color: red;">Supprimer</button>
         </div>
         <div class="card-footer text-body-secondary">
         <text id="qst-anwser-' . $row["question_id"] . '" class="card-subtitle mb-2 text-body-secondary" style="readonly=false;" name="qst creator"> Createur : '  . $row["name"] . ' </text>
@@ -107,7 +107,13 @@ if (isset($admin) && $admin == 1) {
 
     echo implode(" ", $_POST);
 
-    if (isset($_POST["qst_text_" . $_POST["id"]])) {
+    if (isset($_POST["remove"])) {
+        
+        echo 'delete';
+
+    }
+
+    if (isset($_POST["save"])) {
 
         $id = $_POST["id"];
         $anwsers = explode(";", $_POST["qst_anwsers_". $id]);

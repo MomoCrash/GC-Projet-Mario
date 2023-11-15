@@ -132,8 +132,6 @@ if ($currentMethod == "login") {
                     $count = $request->rowCount();
                     $currentRow  = $request -> fetch();
 
-                    echo $currentRow['password'];
-
                     if (password_verify($password, $currentRow['password'])) {
                       if ($count > 0) {
                         echo "Vous etes connecte";
