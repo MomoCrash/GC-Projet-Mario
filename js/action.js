@@ -26,7 +26,7 @@ var IS_FINISH = false;
 var QUESTIONS = [];
 var ANWSERED_QUESTION = [];
 var CURRENT_QUESTION = null;
-var QUESTION_NUMBER = 15;
+var QUESTION_NUMBER = 1;
 var QUESTION_PROGRESSION = 0;
 
 // Selected anwser
@@ -61,6 +61,7 @@ $("#question-reset").click(function(){
     $("#question-card").text('Vous devez repondre a chaque question par une ou plusieurs reponse, choissisez chaque reponse que vous pensez valide puis valider avec "Question suivante"'),
     $("#question-next").text("Commencez le Quiz !");let e=100*QUESTION_PROGRESSION/QUESTION_NUMBER;
     $("#question-progress").attr("style","width: "+e+"%").text(e+"%")
+    $( "div" ).remove( ".leaderboard" );
 });
 
 // Display the question on page
@@ -86,22 +87,6 @@ function updateCard(t){
     $("#question-progress").attr("style","width: "+r+"%").text(Math.floor(r)+"%")}
 }
 
-// Leaderboard
-
-$(document).ready(function() {
-    $('.bestScores').each(function() {
-        var scores = $(this).data('service');
-
-        //console.log(scores);
-
-        scores.forEach(element => {
-            console.log(element);
-        });
-    
-
-        // Var "service" now contains the value of $myService->getValue();
-    });
-});
 
 // Set the difficulty on easy
 $("#question-easy").click(function(){
@@ -134,6 +119,7 @@ $("#question-next").click(function(){
     $("#question-next").text("Correction"),$("#question-difficulty").empty(),IS_FIRST=!1,updateCard(!1);
     // Code for the first quiz reset
     else if(IS_RESET)IS_RESET=!1,QUESTION_PROGRESSION=0,updateCard(!0),
+    $( "div" ).remove( ".leaderboard" ),
     $("#question-next").text("Correction");
     // Code for state question feedback
     else if(IS_FEEDBACK) $("#question-next").text("Correction"),IS_FEEDBACK=!1,(QUESTION_PROGRESSION+=1)==QUESTION_NUMBER?(
@@ -142,6 +128,27 @@ $("#question-next").click(function(){
     else if(IS_FINISH){console.log("Finis"),
         $("#question-title").text("Resultat"),$("#question-subtitle").text("Quiz en difficulte moyenne"),
         $("#question-card").empty(),$("#question-card").text("Vous avez : "+SCORE+" de score !"),$("#question-next").text("Commencez le Quiz !");
+        $('.bestScores').each(function() {
+            var scores = $(this).data('service');
+            //requete AJAX avec jquery (fonction getJSON)
+
+            //get leaderboard
+            $(document).ready(function(){
+                $.post("getleaderboard.php", {newScore: 10, id: 12}, function(response){
+                    console.log(response);
+                });
+            });
+            //recever les données => append
+    
+            scores.forEach(element => {
+                console.log(element);
+                $(".card-body").append('<div class="leaderboard">'+ element.name + " : " + element.score + '</div>');
+                
+            });
+        
+    
+            // Var "service" now contains the value of $myService->getValue();
+        });
     let e=100*QUESTION_PROGRESSION/QUESTION_NUMBER;
     $("#question-progress").attr("style","width: "+e+"%").text(e+"%"),IS_FINISH=!1,IS_RESET=!0}
     // Code for scrolling questions
