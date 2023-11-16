@@ -5,7 +5,6 @@ $("#btn-editor").click(function() {
     location.href='editor.php';
 });
 
-
 /* -----------------------              QUIZ PART ------------------------------- */
 var SCORE = 0
 
@@ -45,13 +44,21 @@ class Question{constructor(s,t,e,i){
     }
 }
 
-// Load JSON file
-$.getJSON("js/questions.json",function(e){
-    let n=e;
-    for(let s=0;s<n.length;s++){
-        let t=n[s],o=questionsTypeEnum[t.questionType],i=t.question,l=t.answers,u=t.validAnswers;new Question(o,i,l,u)
-    }
+// Load from data base
+$(document).ready(function() {
+    $('.quiz-question').each(function() {
+        var questions = $(this).data('service');
+
+        console.log(questions);
+
+        questions.forEach(element => {
+            new Question(questionsTypeEnum[element.question_type], element.question, element.answers, element.valid_anwsers)
+        });
+
+        // Var "service" now contains the value of $myService->getValue();
+    });
 });
+
 
 // Script for reset the quiz
 $("#question-reset").click(function(){

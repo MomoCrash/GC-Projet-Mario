@@ -2,6 +2,9 @@
 <html lang="en">
 
 <?php
+
+include "php/sql-manager.php";
+
 session_start();
 if (isset($_SESSION['name'])) {
   $name = $_SESSION['name'];
@@ -13,6 +16,7 @@ if (isset($_SESSION['admin'])) {
 } else {
   $admin = 0;
 }
+session_regenerate_id(true);
 
 $isAdmin = false;
 if (isset($admin)) {
@@ -20,14 +24,20 @@ if (isset($admin)) {
     $isAdmin = true;
   }
 }
-<<<<<<< Updated upstream
-=======
+
+$request =  $conn->prepare("SELECT question,question_type,anwsers,valid_anwsers FROM quiz ORDER BY RAND() LIMIT 10");
+$request->execute();
+
+$array_num = [];
+
+while ($row = $request->fetch()) {
+  array_push($array_num, $row);
+}
 
 $bestScores = $conn->prepare("SELECT name, score FROM scores JOIN users ON scores.user_id = users.user_id ORDER BY score DESC LIMIT 10;");
 $bestScores->execute();
 
 $userId = $_SESSION['id'];
->>>>>>> Stashed changes
 ?>
 
 <head>
@@ -143,11 +153,10 @@ $userId = $_SESSION['id'];
           ?>
       </div>
     </div>
-<<<<<<< Updated upstream
-=======
     
     <div class="bestScores" data-service="<?= htmlspecialchars($userId) ?>">
->>>>>>> Stashed changes
+
+    <div class="quiz-question" data-service="<?= htmlspecialchars(json_encode($array_num)) ?>">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

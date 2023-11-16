@@ -73,7 +73,50 @@ if ($isAdmin) {
 <div class="container h-100">
 <div class="row d-flex justify-content-center">             
 <?php
+
+function array_to_bdd($array) {
+
+    $textArray = explode(";", $array);
+
+    if (count($textArray) > 1) {
+        $formatedBddArray = '[\"' . $textArray[0] . '\",\"';
+        for($i=1; $i<count($textArray) - 1; $i++){
+            $formatedBddArray .= $textArray[$i] . '\",\"';
+        }
+        $formatedBddArray .= end($textArray) . '\"]';
+    } else {
+        $formatedBddArray = '[\"' . $textArray[0] . '\"]';
+    }
+
+    return $formatedBddArray;
+
+}
+
 if (isset($admin) && $admin == 1) {
+
+    echo '<div class="md-6 align-self-center">  
+        <form id="qst-form-add"  method="post"> 
+        <div class="card text-center" style="width: 20rem; height: 30rem; max-height: 50rem; margin: 10px;">
+        <div class="card-header">
+        <h5 id="qst-title" class="card-title"> Ajouter une question </h5>
+        <textarea id="qst-title-add" class="card-subtitle mb-2 text-body-secondary" style="readonly=false;" name="qst text add"></textarea>
+        </div>
+        <div class="card-body">
+        <label for="qst-anwser-add">Reponses</label>
+        <textarea id="qst-valid-anwser-add" class="card-subtitle mb-2 text-body-secondary" style="readonly=false;" name="qst anwsers add"></textarea>
+        
+        <label for="qst-valid-anwser-add">Index des reponses correctes</label>
+        <textarea id="qst-valid-anwser-add" class="card-subtitle mb-2 text-body-secondary" style="readonly=false;" name="qst valid anwsers add"></textarea>
+        
+        <button name="add" type="submit" id="connection-button" class="btn btn-primary" style="background-color: green;">Ajouter !</button>
+        </div>
+        <div class="card-footer text-body-secondary">
+        <text id="qst-anwser-add" class="card-subtitle mb-2 text-body-secondary" style="readonly=false;" name="qst creator"> Createur : IDIDIDIDID </text>
+        <input type="hidden" name="id" value="0" />
+        </div>
+        </div>
+        </form>
+        </div>';
     
     $request =  $conn->prepare("SELECT * FROM quiz JOIN users ON users.user_id = quiz.user_id ORDER BY quiz.question_id");
     $request->execute();
@@ -93,8 +136,8 @@ if (isset($admin) && $admin == 1) {
         <label for="qst-valid-anwser-' . $row["question_id"] . '">Index des reponses correctes</label>
         <textarea id="qst-valid-anwser-' . $row["question_id"] . '" class="card-subtitle mb-2 text-body-secondary" style="readonly=false;" name="qst valid anwsers '  . $row["question_id"] . '">'  . implode(";", json_decode($row["valid_anwsers"])) . '</textarea>
         
-        <button type="submit" id="connection-button" class="btn btn-primary" style="background-color: green;">Sauvegarder</button>
-        <button id="connection-button" class="btn btn-primary" style="background-color: red;">Supprimer</button>
+        <button name="save" type="submit" id="connection-button" class="btn btn-primary" style="background-color: green;">Sauvegarder</button>
+        <button name="remove" id="connection-button" class="btn btn-primary" style="background-color: red;">Supprimer</button>
         </div>
         <div class="card-footer text-body-secondary">
         <text id="qst-anwser-' . $row["question_id"] . '" class="card-subtitle mb-2 text-body-secondary" style="readonly=false;" name="qst creator"> Createur : '  . $row["name"] . ' </text>
@@ -105,28 +148,38 @@ if (isset($admin) && $admin == 1) {
         </div>';
     }   
 
-    echo implode(" ", $_POST);
+    if (isset($_POST["add"])) {
 
-    if (isset($_POST["qst_text_" . $_POST["id"]])) {
+        $formatedAnwser = array_to_bdd($_POST["qst_anwsers_add"]);
 
-        $id = $_POST["id"];
-        $anwsers = explode(";", $_POST["qst_anwsers_". $id]);
-        $formatedAnwser = '[\"' . $anwsers[0] . '\",\"';
-        for($i=1; $i<count($anwsers) - 1; $i++){
-            $formatedAnwser .= $anwsers[$i] . '\",\"';
-        }
-        $formatedAnwser .= end($anwsers) . '\"]';
+        $formatedValidAnwser = array_to_bdd($_POST["qst_valid_anwsers_add"]);
 
-        $validAnwsers = explode(";", $_POST["qst_valid_anwsers_". $id]);
-        $formatedValidAnwser = '[\"' . $validAnwsers[0] . '\",\"';
-        for($i=1; $i<count($validAnwsers) - 1; $i++){
-            $formatedValidAnwser .= $validAnwsers[$i] . '\",\"';
-        }
-        $formatedValidAnwser .= end($validAnwsers) . '\"]';
-
-        $request =  $conn->prepare("UPDATE quiz SET question='" . $_POST["qst_text_". $id] . "',anwsers='" . $formatedAnwser . "', valid_anwsers='" . $formatedValidAnwser . "' WHERE question_id=" . $_POST["id"] . ";");
+        $request =  $conn->prepare("INSERT INTO quiz (`question_id`, `question_type`, `question`, `anwsers`, `valid_anwsers`, `user_id`) 
+        VALUES (NULL, 'qcm', '" . $_POST["qst_text_add"] . "', '" . $formatedAnwser . "', '" . $formatedValidAnwser . "', '" . $_POST["id"] . "');");
         $request->execute();
 
+
+    }
+
+    if (isset($_POST["remove"])) {
+        
+        $id = $_POST["id"];
+        $request =  $conn->prepare("DELETE FROM quiz WHERE question_id=" . $id);
+        $request->execute();
+
+        echo "<meta http-equiv='refresh' content='0'>";
+
+    }
+
+    if (isset($_POST["save"])) {
+
+        $id = $_POST["id"];
+
+        $formatedAnwser = array_to_bdd($_POST["qst_anwsers_". $id]);
+        $formatedValidAnwser = array_to_bdd($_POST["qst_valid_anwsers_". $id]);
+
+        $request =  $conn->prepare("UPDATE quiz SET question='" . $_POST["qst_text_". $id] . "', anwsers='" . $formatedAnwser . "', valid_anwsers='" . $formatedValidAnwser . "' WHERE question_id=" . $id . ";");
+        $request->execute();
         echo "<meta http-equiv='refresh' content='0'>";
 
     }
