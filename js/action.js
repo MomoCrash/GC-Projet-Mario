@@ -51,11 +51,12 @@ $(document).ready(function() {
 
         console.log(questions);
 
-        questions.forEach(element => {
-            new Question(questionsTypeEnum[element.question_type], element.question, element.answers, element.valid_anwsers)
-        });
+        QUESTIONS=[];
 
-        // Var "service" now contains the value of $myService->getValue();
+        questions.forEach(element => {
+            console.log(JSON.parse(element.valid_anwsers))
+            new Question(questionsTypeEnum[element.question_type], element.question, JSON.parse(element.anwsers), JSON.parse(element.valid_anwsers));
+        });
     });
 });
 
@@ -123,7 +124,7 @@ $("#question-next").click(function(){
     if(IS_FIRST)$("#progress-bar").append('<div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="10"><div id="question-progress" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%;">0%</div></div>"'),
     $("#question-next").text("Correction"),$("#question-difficulty").empty(),IS_FIRST=!1,updateCard(!1);
     // Code for the first quiz reset
-    else if(IS_RESET)IS_RESET=!1,QUESTION_PROGRESSION=0,updateCard(!0),
+    else if(IS_RESET)IS_RESET=!1,SCORE=0,QUESTION_PROGRESSION=0,updateCard(!0),
     $("#question-next").text("Correction");
     // Code for state question feedback
     else if(IS_FEEDBACK) $("#question-next").text("Correction"),IS_FEEDBACK=!1,(QUESTION_PROGRESSION+=1)==QUESTION_NUMBER?(
@@ -132,16 +133,16 @@ $("#question-next").click(function(){
     else if(IS_FINISH){console.log("Finis"),
         $("#question-title").text("Resultat"),$("#question-subtitle").text("Quiz en difficulte moyenne"),
         $("#question-card").empty(),$("#question-card").text("Vous avez : "+SCORE+" de score !"),$("#question-next").text("Commencez le Quiz !");
-<<<<<<< Updated upstream
-=======
 
         //get leaderboard
-        $.post("getleaderboard.php", {newScore: SCORE, id: $(".bestScores").data("service")}, function(response){
+        $.post("getleaderboard.php", {newScore: SCORE}, function(response){
             console.log(response);
-        });
+            console.log($.parseJSON(response));
+            $.parseJSON(response).forEach(element => {
+                $("#question-card").append("<div>" + element.name + " : " + element.score + ".</div>");
+            })
+        });SCORE=0;
 
-
->>>>>>> Stashed changes
     let e=100*QUESTION_PROGRESSION/QUESTION_NUMBER;
     $("#question-progress").attr("style","width: "+e+"%").text(e+"%"),IS_FINISH=!1,IS_RESET=!0}
     // Code for scrolling questions

@@ -137,6 +137,7 @@ if ($currentMethod == "login") {
                         echo "Vous etes connecte";
                         $_SESSION['name'] = $currentRow['name'];
                         $_SESSION['admin'] = $currentRow['admin'];
+                        $_SESSION['id'] = $currentRow["user_id"];
                         header('Location: quiz.php');
                         exit;
                       } else {
@@ -175,8 +176,12 @@ if ($currentMethod == "login") {
 
                       $request =  $conn->prepare("INSERT INTO `users` (`user_id`, `mail`, `name`, `password`, `admin`) VALUES (NULL, '". $mail ."', '" . $username . "', '" . $password . "', 0);");
                       $request->execute();
-                      
-                      $currentRow  = $request -> fetch();
+
+                      $response =  $conn->prepare("SELECT * FROM users WHERE mail='" . $mail . "';");
+                      $response -> execute();
+
+                      $currentRow  = $response -> fetch();
+
                       $_SESSION['name'] = $currentRow['name'];
                       $_SESSION['admin'] = $currentRow['admin'];
                       $_SESSION['id'] = $currentRow["user_id"];

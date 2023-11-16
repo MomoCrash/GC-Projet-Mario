@@ -37,7 +37,9 @@ while ($row = $request->fetch()) {
 $bestScores = $conn->prepare("SELECT name, score FROM scores JOIN users ON scores.user_id = users.user_id ORDER BY score DESC LIMIT 10;");
 $bestScores->execute();
 
-$userId = $_SESSION['id'];
+if (isset($_SESSION["id"])) {
+  $userId = $_SESSION['id'];
+}
 ?>
 
 <head>
@@ -154,8 +156,12 @@ $userId = $_SESSION['id'];
       </div>
     </div>
     
-    <div class="bestScores" data-service="<?= htmlspecialchars($userId) ?>">
-
+    <?php
+    if (isset($userId)) {
+      echo '<div class="bestScores" data-service="<?= htmlspecialchars($userId) ?>">';
+    }
+    ?>
+    
     <div class="quiz-question" data-service="<?= htmlspecialchars(json_encode($array_num)) ?>">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
