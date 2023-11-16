@@ -132,6 +132,16 @@ $("#question-next").click(function(){
     else if(IS_FINISH){console.log("Finis"),
         $("#question-title").text("Resultat"),$("#question-subtitle").text("Quiz en difficulte moyenne"),
         $("#question-card").empty(),$("#question-card").text("Vous avez : "+SCORE+" de score !"),$("#question-next").text("Commencez le Quiz !");
+<<<<<<< Updated upstream
+=======
+
+        //get leaderboard
+        $.post("getleaderboard.php", {newScore: SCORE, id: $(".bestScores").data("service")}, function(response){
+            console.log(response);
+        });
+
+
+>>>>>>> Stashed changes
     let e=100*QUESTION_PROGRESSION/QUESTION_NUMBER;
     $("#question-progress").attr("style","width: "+e+"%").text(e+"%"),IS_FINISH=!1,IS_RESET=!0}
     // Code for scrolling questions

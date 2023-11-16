@@ -34,6 +34,10 @@ while ($row = $request->fetch()) {
   array_push($array_num, $row);
 }
 
+$bestScores = $conn->prepare("SELECT name, score FROM scores JOIN users ON scores.user_id = users.user_id ORDER BY score DESC LIMIT 10;");
+$bestScores->execute();
+
+$userId = $_SESSION['id'];
 ?>
 
 <head>
@@ -149,6 +153,8 @@ while ($row = $request->fetch()) {
           ?>
       </div>
     </div>
+    
+    <div class="bestScores" data-service="<?= htmlspecialchars($userId) ?>">
 
     <div class="quiz-question" data-service="<?= htmlspecialchars(json_encode($array_num)) ?>">
 

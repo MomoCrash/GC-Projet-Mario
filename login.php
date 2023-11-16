@@ -164,7 +164,7 @@ if ($currentMethod == "login") {
                     $count = $request->rowCount();
 
                     if ($count > 0) {
-
+                      
                       echo 'Cet utilisateur exite deja !';
 
                     } else {
@@ -175,9 +175,12 @@ if ($currentMethod == "login") {
 
                       $request =  $conn->prepare("INSERT INTO `users` (`user_id`, `mail`, `name`, `password`, `admin`) VALUES (NULL, '". $mail ."', '" . $username . "', '" . $password . "', 0);");
                       $request->execute();
-
-                      $_SESSION['name'] = $username;
-                      $_SESSION['admin'] = 0;
+                      
+                      $currentRow  = $request -> fetch();
+                      $_SESSION['name'] = $currentRow['name'];
+                      $_SESSION['admin'] = $currentRow['admin'];
+                      $_SESSION['id'] = $currentRow["user_id"];
+                      
                       header('Location: quiz.php');
                       exit;
 
