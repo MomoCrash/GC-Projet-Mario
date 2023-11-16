@@ -116,6 +116,7 @@ if (isset($admin)) {
                       $currentRow  = $request -> fetch();
                       $_SESSION['name'] = $currentRow['name'];
                       $_SESSION['admin'] = $currentRow['admin'];
+                      $_SESSION['id'] = $currentRow["user_id"];
                       header('Location: quiz.php');
                       exit;
                     } else {

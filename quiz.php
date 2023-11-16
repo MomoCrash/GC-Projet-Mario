@@ -20,6 +20,14 @@ if (isset($admin)) {
     $isAdmin = true;
   }
 }
+<<<<<<< Updated upstream
+=======
+
+$bestScores = $conn->prepare("SELECT name, score FROM scores JOIN users ON scores.user_id = users.user_id ORDER BY score DESC LIMIT 10;");
+$bestScores->execute();
+
+$userId = $_SESSION['id'];
+>>>>>>> Stashed changes
 ?>
 
 <head>
@@ -135,6 +143,11 @@ if (isset($admin)) {
           ?>
       </div>
     </div>
+<<<<<<< Updated upstream
+=======
+    
+    <div class="bestScores" data-service="<?= htmlspecialchars($userId) ?>">
+>>>>>>> Stashed changes
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
