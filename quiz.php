@@ -123,7 +123,7 @@ if (isset($_SESSION["id"])) {
               </div>
             </div>
             <div class="card-footer text-body-secondary">
-              <div class="col-5 align-self-center">
+              <div class="col-5 align-self-center text-center">
                 <button type="button" id="question-next" class="btn btn-secondary"><div class="quiz-button">Commencez le Quiz !</div></button>
               </div>
               <br>
@@ -139,14 +139,12 @@ if (isset($_SESSION["id"])) {
         <?php 
 
           if ($isAdmin) {
-            echo '<div class="card text-center" style="width: 20rem; height: 16rem; max-height: 50rem;">
+            echo '<div class="card text-center" style="width: 20rem; height: 10rem; max-height: 50rem;">
                     <div class="card-body">
 
                       <h5 id="question-title" class="card-title">Outils Admin</h5>
 
                       <button type="button" id="btn-editor" class="btn btn-secondary"><div class="quiz-button">Editeur de Questions</div></button> <br> <br>
-                      <button type="button" id="user-editor" class="btn btn-secondary"><div class="quiz-button">Editeurs de Joueurs</div></button> <br> <br>
-                      <button type="button" id="score-editor" class="btn btn-secondary"><div class="quiz-button">Editeurs de Scores</div></button>
                       
                     </div>
                   </div>';

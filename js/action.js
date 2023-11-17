@@ -1,4 +1,3 @@
-
 /* -----------------------              ADMINISTRATION PART ------------------------------- */
 
 $("#btn-editor").click(function() {
@@ -49,12 +48,9 @@ $(document).ready(function() {
     $('.quiz-question').each(function() {
         var questions = $(this).data('service');
 
-        console.log(questions);
-
         QUESTIONS=[];
 
         questions.forEach(element => {
-            console.log(JSON.parse(element.valid_anwsers))
             new Question(questionsTypeEnum[element.question_type], element.question, JSON.parse(element.anwsers), JSON.parse(element.valid_anwsers));
         });
     });
@@ -136,8 +132,6 @@ $("#question-next").click(function(){
 
         //get leaderboard
         $.post("getleaderboard.php", {newScore: SCORE}, function(response){
-            console.log(response);
-            console.log($.parseJSON(response));
             $.parseJSON(response).forEach(element => {
                 $("#question-card").append("<div>" + element.name + " : " + element.score + ".</div>");
             })

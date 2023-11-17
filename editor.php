@@ -94,6 +94,26 @@ function array_to_bdd($array) {
 
 if (isset($admin) && $admin == 1) {
 
+    echo '<form action="editor.php"  method="get">
+            <div class="form-group card text-center md-6 align-self-center" style="width:20rem;height: 15rem;margin: 10px;">
+                <label style="color:black;" for="recherche">Chercher une question</label>
+                <input type="search" class="form-control" id="searchInput" aria-describedby="searchDetail" placeholder="Votre recherche" name="search">
+                <small style="color:black;" id="searchDetail" class="form-text">Entrer un mot contenu dans la question.</small>
+                <button type="submit" class="btn btn-primary" style="background-color: green;">Rechercher !</button>
+                <button type="submit" class="btn btn-primary" style="background-color: red;">Supprimer le filtre</button>
+            </div>
+          </form>';
+
+    if (isset($_GET["search"])) {
+
+        if ($_GET["search"] != "") {
+
+            $searchParameter = $_GET["search"];
+        
+        }
+    
+    }
+
     echo '<div class="md-6 align-self-center">  
         <form id="qst-form-add"  method="post"> 
         <div class="card text-center" style="width: 20rem; height: 30rem; max-height: 50rem; margin: 10px;">
@@ -111,14 +131,18 @@ if (isset($admin) && $admin == 1) {
         <button name="add" type="submit" id="connection-button" class="btn btn-primary" style="background-color: green;">Ajouter !</button>
         </div>
         <div class="card-footer text-body-secondary">
-        <text id="qst-anwser-add" class="card-subtitle mb-2 text-body-secondary" style="readonly=false;" name="qst creator"> Createur : IDIDIDIDID </text>
-        <input type="hidden" name="id" value="0" />
+        <text id="qst-anwser-add" class="card-subtitle mb-2 text-body-secondary" style="readonly=false;" name="qst creator"> Createur : ' . $_SESSION['name'] . ' </text>
+        <input type="hidden" name="id" value="' . $_SESSION['id'] . '" />
         </div>
         </div>
         </form>
         </div>';
     
-    $request =  $conn->prepare("SELECT * FROM quiz JOIN users ON users.user_id = quiz.user_id ORDER BY quiz.question_id");
+    if (isset($searchParameter)) {
+        $request =  $conn->prepare("SELECT * FROM quiz JOIN users ON users.user_id = quiz.user_id WHERE question LIKE '%" . $searchParameter . "%' ORDER BY quiz.question_id");
+    } else {
+        $request =  $conn->prepare("SELECT * FROM quiz JOIN users ON users.user_id = quiz.user_id ORDER BY quiz.question_id");
+    }
     $request->execute();
     
     while ($row = $request->fetch()) {
@@ -157,6 +181,7 @@ if (isset($admin) && $admin == 1) {
         $request =  $conn->prepare("INSERT INTO quiz (`question_id`, `question_type`, `question`, `anwsers`, `valid_anwsers`, `user_id`) 
         VALUES (NULL, 'qcm', '" . $_POST["qst_text_add"] . "', '" . $formatedAnwser . "', '" . $formatedValidAnwser . "', '" . $_POST["id"] . "');");
         $request->execute();
+        echo "<meta http-equiv='refresh' content='0'>";
 
 
     }

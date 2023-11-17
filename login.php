@@ -92,7 +92,7 @@ if ($currentMethod == "login") {
       <div class="row d-flex justify-content-center">
         
         <div class="md-6 align-self-center">
-          <div class="card text-center" style="width: 20rem; height: 30rem; max-height: 50rem;">
+          <div class="card text-center" style="width: 20rem; height: 35rem; max-height: 50rem;">
             <div class="card-header">
               <h5 id="question-title" class="card-title">Se connecter</h5>
             </div>
@@ -117,7 +117,8 @@ if ($currentMethod == "login") {
                     <label for="passwordInput">Mot de passe</label>
                     <input type="password" class="form-control" id="passwordInput" placeholder="········" name="password">
                   </div>
-                  <button type="submit" name="<?= $currentMethod ?>" id="<?= $currentMethod ?>" class="btn btn-primary"><?php if ($currentMethod == "login") echo 'Connexion'; else echo 'register';  ?> </button>
+                  <p class="text-center"> <a href='recovery.php'>Mot de passe oublie</a></p>
+                  <button style="background-color: green;" type="submit" name="<?= $currentMethod ?>" id="<?= $currentMethod ?>" class="btn btn-primary"><?php if ($currentMethod == "login") echo 'Connexion'; else echo 'register';  ?> </button>
               </form>
               <?php
                 
@@ -212,7 +213,6 @@ if ($currentMethod == "login") {
       </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
