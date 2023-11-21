@@ -52,19 +52,19 @@ if ($currentMethod == "login") {
       <img src="ressources/icons/mario-icon.png" alt="Nav Menu Icon" style="width: 40px; ">
     </li>
     <li class="nav-item">
-      <a class="nav-link" aria-current="page" href="index.html" style="color: white;">Acceuil</a>
+      <a class="nav-link" aria-current="page" href="index.php" style="color: white;">Acceuil</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="index.html#nouveautes" style="color: white;">Nouveautes</a>
+      <a class="nav-link" href="index.php#nouveautes" style="color: white;">Nouveautes</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="index.html#jeux" style="color: white;">jeux</a>
+      <a class="nav-link" href="index.php#jeux" style="color: white;">jeux</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="personnage.html" style="color: white;">personnages</a>
+      <a class="nav-link" href="personnage.php" style="color: white;">personnages</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="objets.html" style="color: white;">objets</a>
+      <a class="nav-link" href="objets.php" style="color: white;">objets</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="https://www.nintendo.fr/Rechercher/Rechercher-299117.html?q=Mario%20Bros&f=147394-5-2-3-1-32-43" style="color: white;">Acheter</a>
@@ -73,7 +73,7 @@ if ($currentMethod == "login") {
       <a class="nav-link " href="quiz.php" style="color: white;">quiz</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="login.php" style="color: white; background-color: rgba(195, 0, 255, 0.329);">connexion</a>
+      <a class="nav-link active" href="login.php" style="color: white; background-color: rgba(195, 0, 255, 0.329);"><?php if (isset($_SESSION['name'])) echo $name; else echo "connexion"; ?></a>
     </li>
     <?php
     

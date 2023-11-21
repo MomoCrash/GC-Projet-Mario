@@ -40,64 +40,21 @@ html {
 
 /*---------- Navigation bar ----------*/
 
-.nav-bar {
-    position: sticky;
-    display: flex;
-
-    align-items: center;
-    text-align: center;
-
-    top: 0;
-
-    height: 60px;
-
-    background-color: rgb(80, 0, 0);
-    background-image: url(ressources/Background/pattern-logos-characters.webp), var(--gradient-darck); 
-    color: #fff;
-    
-    z-index: 1;
-
-    margin-bottom: 10px;
-
-    > .nav-text {
-
-      width: 100%;
-      color: white;
-      text-decoration: none;
-      width: 25%;
-      z-index: 1;
-
-      &:hover {
-        transition: all .1s ease-in ;
-        transform: scale(1.2);
-      }
-    
-      &:active {
-        transition: all .1s ease-in;
-        transform: scale(2);
-        color: gold;
-        user-select: none;
-      }
-
-    }
-
+.nav {
+  margin-bottom: 10px; 
+  background-color: rgb(80, 0, 0); 
+  background-image: url(ressources/Background/pattern-logos-characters.webp), var(--gradient-darck);
 }
 
-.nav-icon {
+.nav-item :hover{
+  transition: all .1s ease-in ;
+        transform: scale(1.2);
+}
 
-  position: flex;
-  display: block;
-
-  text-decoration: none;
-  padding-top: 5px;
-  z-index: 2;
-
-  > img {
-    max-width: 50px;
-    max-height: 50px;
-    width: 48px;
-    height: 48px;
-  }
+.nav-item :active {
+  transition: all .1s ease-in;
+  transform: scale(2);
+  user-select: none;
 }
 
 /*---------- titles ----------*/

@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
+
+<?php
+include "php/sql-manager.php";
+
+session_start();
+if (isset($_SESSION['name'])) {
+  $name = $_SESSION['name'];
+} else {
+  $name = "Invite";
+}
+if (isset($_SESSION['admin'])) {
+  $admin = $_SESSION['admin'];
+} else {
+  $admin = 0;
+}
+session_regenerate_id(true);
+
+$isAdmin = false;
+if (isset($admin)) {
+  if ($admin == 1) {
+    $isAdmin = true;
+  }
+}
+?>
+
     <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="style2.css">
         <link rel="stylesheet" href="style.css">
         <link rel="icon" type="image/x-icon" href="ressources/icons/mario-icon.png">
@@ -11,15 +37,46 @@
     </head>
     <body>
 
-        <div class="nav-bar">
-            <a class="nav-icon" href="index.html#top-title"> <img src="ressources/icons/mario-icon.png" alt="Nav Menu Icon"> </a>
-            <a class="nav-text" href="index.html"> Acceuil </a>
-            <a class="nav-text" href="index.html#nouveautes"> Nouveautes </a>
-            <a class="nav-text" href="index.html#jeux"> Jeu </a>
-            <a class="nav-text" href="objets.html"> Objets </a>
-            <a class="nav-text" aria-label="Faire le Quiz" href="quiz.html">Quiz</a>
-            <a class="nav-text" href="https://www.nintendo.fr/Rechercher/Rechercher-299117.html?q=Mario%20Bros&f=147394-5-2-3-1-32-43"  target="_blank"> Acheter </a>
-        </div>
+    <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">      
+            <img src="ressources/icons/mario-icon.png" alt="Nav Menu Icon" style="width: 40px; ">
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.php" style="color: white; background-color: rgba(195, 0, 255, 0.329);">Acceuil</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="index.php#nouveautes" style="color: white;">Nouveautes</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="index.php#jeux" style="color: white;">jeux</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="personnage.php" style="color: white;">personnages</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="objets.php" style="color: white;">objets</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="https://www.nintendo.fr/Rechercher/Rechercher-299117.html?q=Mario%20Bros&f=147394-5-2-3-1-32-43" style="color: white;">Acheter</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="quiz.php" style="color: white;">quiz</a>
+            </li>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="login.php" style="color: white;">connexion</a>
+            </li>
+
+            <?php
+            
+            if ($isAdmin) {
+            echo '<li class="nav-item">
+                    <a class="nav-link" href="editor.php" style="color: white;">editor</a>
+                    </li>';
+            }
+            
+            ?>
+        </ul> 
 
         <h1 class="title"> PERSONNAGES</h1>
 
@@ -174,4 +231,5 @@
             <a href="mention-legal.html" style="color: white; text-decoration: none;">CGU </a>
         </div>
     </footer>
+  
 </html>
